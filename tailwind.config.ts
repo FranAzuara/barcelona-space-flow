@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        available: "hsl(var(--available))",
+        occupied: {
+          DEFAULT: "hsl(var(--occupied))",
+          foreground: "hsl(var(--occupied-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
