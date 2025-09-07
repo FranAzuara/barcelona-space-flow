@@ -5,8 +5,8 @@ const Features = () => {
   const features = [
     {
       icon: Music,
-      title: "Insonorización Profesional",
-      description: "Sistema de insonorización que permite actividades musicales sin molestar al entorno."
+      title: "Audio Profesional",
+      description: "Sistema de insonorización que permite actividades musicales sin molestar al entorno y sistema de sonido profesional incluido."
     },
     {
       icon: AirVent,
@@ -22,16 +22,6 @@ const Features = () => {
       icon: Heart,
       title: "Actividades de Bienestar",
       description: "Ambiente pensado para meditación, talleres de mindfulness y terapias grupales."
-    },
-    {
-      icon: Users,
-      title: "Capacidad Versátil",
-      description: "Desde clases individuales hasta grupos grandes, el espacio se adapta a tus necesidades."
-    },
-    {
-      icon: Wifi,
-      title: "Conectividad Completa",
-      description: "WiFi de alta velocidad y sistema de sonido profesional incluidos."
     }
   ];
 
