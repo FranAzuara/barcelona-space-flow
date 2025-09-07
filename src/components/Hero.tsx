@@ -17,20 +17,12 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        <div className="animate-fade-up flex flex-col items-center mb-8">
-          <div className="w-24 h-24 lg:w-32 lg:h-32 mb-4 rounded-full bg-white flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-secondary font-bold text-lg lg:text-2xl">S</div>
-              <div className="text-primary text-xs font-semibold">STUDIEZ</div>
-            </div>
-          </div>
-          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-2 leading-tight">
-            <span className="block text-white">The</span>
-            <span className="block text-secondary text-6xl lg:text-8xl">STUDIEZ</span>
+        <div className="animate-fade-up">
+          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Alquiler de Sala
+            <span className="block text-secondary">Polivalente</span>
+            <span className="block text-white">en Barcelona</span>
           </h1>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-white/90">
-            Alquiler de Sala Polivalente en Barcelona
-          </h2>
         </div>
         
         <div className="animate-fade-up-delay">

@@ -8,13 +8,13 @@ Paleta: Negro (principal), Verde (secundario), Blanco (terciario)
 
 @layer base {
   :root {
-    /* Base colors - Dark theme for The Studiez */
-    --background: 0 0% 8%;
-    --foreground: 0 0% 98%;
+    /* Base colors - Sala Polivalente theme */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
     
     /* Brand colors */
-    --primary: 0 0% 98%; /* Blanco principal */
-    --primary-foreground: 0 0% 8%;
+    --primary: 0 0% 8%; /* Negro principal */
+    --primary-foreground: 0 0% 98%;
     
     --secondary: 142 76% 36%; /* Verde secundario */
     --secondary-foreground: 0 0% 98%;
@@ -28,20 +28,20 @@ Paleta: Negro (principal), Verde (secundario), Blanco (terciario)
     --occupied-foreground: 0 0% 98%;
     
     /* UI colors */
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
     
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
     
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
     --ring: 142 76% 36%;
 
     --radius: 0.5rem;
