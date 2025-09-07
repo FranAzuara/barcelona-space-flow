@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, Heart, Music, Palette, Star } from "lucide-react";
+import { Users, Heart, Palette, Star } from "lucide-react";
 
 const Activities = () => {
   const activities = [
@@ -15,12 +15,6 @@ const Activities = () => {
       title: "Pilates y Yoga",
       description: "Ambiente perfecto para actividades de bienestar con la tranquilidad que necesitas.",
       features: ["Iluminación natural", "Espacio silencioso", "Aire purificado"]
-    },
-    {
-      icon: Music,
-      title: "Música y Teatro",
-      description: "Ensayos musicales, obras teatrales y performances artísticas encuentran aquí su lugar.",
-      features: ["Insonorización completa", "Flexibilidad de horarios", "Equipamiento técnico"]
     },
     {
       icon: Palette,
