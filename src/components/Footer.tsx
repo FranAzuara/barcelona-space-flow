@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold mb-4">
@@ -48,17 +48,6 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#calendario" className="hover:text-secondary transition-colors">Ver Disponibilidad</a></li>
-              <li><a href="#actividades" className="hover:text-secondary transition-colors">Actividades</a></li>
-              <li><a href="#ubicacion" className="hover:text-secondary transition-colors">Ubicación</a></li>
-              <li><a href="#tarifas" className="hover:text-secondary transition-colors">Tarifas</a></li>
-              <li><a href="#contacto" className="hover:text-secondary transition-colors">Contacto</a></li>
-            </ul>
-          </div>
         </div>
         
         {/* Bottom Section */}
