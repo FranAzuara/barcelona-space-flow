@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Music, Dumbbell, Heart, Users, Wifi, AirVent } from "lucide-react";
+import { Music, Activity, Heart, Users, Wifi, AirVent } from "lucide-react";
 
 const Features = () => {
   const features = [
@@ -14,14 +14,14 @@ const Features = () => {
       description: "Climatización completa para mantener la temperatura ideal durante todo el año."
     },
     {
-      icon: Dumbbell,
-      title: "Ideal para Fitness",
-      description: "Espacio perfecto para pilates, yoga, entrenamientos funcionales y más."
+      icon: Activity,
+      title: "Movimiento y expresión corporal",
+      description: "Ambiente pensado para baile, expresión corporal, animal flow y más."
     },
     {
       icon: Heart,
       title: "Actividades de Bienestar",
-      description: "Ambiente pensado para meditación, talleres de mindfulness y terapias grupales."
+      description: "Espacio perfecto para pilates, yoga, meditación, talleres de mindfulness y terapias grupales."
     }
   ];
 
