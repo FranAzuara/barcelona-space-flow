@@ -46,47 +46,49 @@ const Activities = () => {
           </p>
         </div>
         
-        <div className="space-y-12 mb-12">
+        <div className="space-y-16 mb-12">
           {activities.map((activity, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
-              <div className={`flex flex-col lg:flex-row items-center ${activity.imagePosition === 'right' ? 'lg:flex-row-reverse' : ''}`}>
-                {/* Image */}
-                <div className="w-full lg:w-2/5 h-64 lg:h-80">
-                  <img 
-                    src={activity.image} 
-                    alt={activity.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Content */}
-                <div className="w-full lg:w-3/5 p-8">
-                  <div className="flex items-start space-x-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                        <activity.icon className="w-8 h-8 text-secondary" />
+            <div key={index} className="w-full">
+              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                <div className={`flex flex-col lg:flex-row items-stretch min-h-[400px] ${activity.imagePosition === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+                  {/* Image */}
+                  <div className="w-full lg:w-1/3 flex-shrink-0">
+                    <img 
+                      src={activity.image} 
+                      alt={activity.title}
+                      className="w-full h-64 lg:h-full object-cover"
+                    />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="w-full lg:w-2/3 p-8 flex flex-col justify-center">
+                    <div className="flex items-start space-x-6">
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                          <activity.icon className="w-8 h-8 text-secondary" />
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-primary mb-3">
-                        {activity.title}
-                      </h3>
-                      <p className="text-muted-foreground mb-4">
-                        {activity.description}
-                      </p>
-                      <ul className="space-y-2">
-                        {activity.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                            <div className="w-2 h-2 bg-secondary rounded-full mr-3 flex-shrink-0"></div>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-primary mb-4">
+                          {activity.title}
+                        </h3>
+                        <p className="text-muted-foreground mb-6 text-lg">
+                          {activity.description}
+                        </p>
+                        <ul className="space-y-3">
+                          {activity.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="flex items-center text-muted-foreground">
+                              <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           ))}
         </div>
         
