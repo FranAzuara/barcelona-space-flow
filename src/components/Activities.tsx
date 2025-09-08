@@ -47,49 +47,146 @@ const Activities = () => {
         </div>
         
         <div className="space-y-16 mb-12">
-          {activities.map((activity, index) => (
-            <div key={index} className="w-full">
-              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                <div className={`flex flex-col lg:flex-row items-stretch min-h-[400px] ${activity.imagePosition === 'right' ? 'lg:flex-row-reverse' : ''}`}>
-                  {/* Image */}
-                  <div className="w-full lg:w-1/3 flex-shrink-0">
-                    <img 
-                      src={activity.image} 
-                      alt={activity.title}
-                      className="w-full h-64 lg:h-full object-cover"
-                    />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="w-full lg:w-2/3 p-8 flex flex-col justify-center">
-                    <div className="flex items-start space-x-6">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                          <activity.icon className="w-8 h-8 text-secondary" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-primary mb-4">
-                          {activity.title}
-                        </h3>
-                        <p className="text-muted-foreground mb-6 text-lg">
-                          {activity.description}
-                        </p>
-                        <ul className="space-y-3">
-                          {activity.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-center text-muted-foreground">
-                              <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+          {/* Clases de Baile - Imagen a la izquierda */}
+          <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
+            <div className="flex flex-col lg:flex-row items-stretch min-h-[400px]">
+              {/* Imagen */}
+              <div className="w-full lg:w-1/3 flex-shrink-0">
+                <img 
+                  src={danceClassImage} 
+                  alt="Clases de Baile"
+                  className="w-full h-64 lg:h-full object-cover"
+                />
+              </div>
+              
+              {/* Contenido */}
+              <div className="w-full lg:w-2/3 p-8 flex flex-col justify-center">
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                      <Users className="w-8 h-8 text-secondary" />
                     </div>
                   </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-primary mb-4">
+                      Clases de Baile
+                    </h3>
+                    <p className="text-muted-foreground mb-6 text-lg">
+                      Desde bailes latinos hasta danza contemporánea, nuestro espacio se adapta a todos los estilos.
+                    </p>
+                    <ul className="space-y-3">
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Suelo de baile profesional
+                      </li>
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Espejos en todas las paredes
+                      </li>
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Sistema de sonido de calidad
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </Card>
+              </div>
             </div>
-          ))}
+          </Card>
+
+          {/* Pilates y Yoga - Imagen a la derecha */}
+          <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
+            <div className="flex flex-col lg:flex-row-reverse items-stretch min-h-[400px]">
+              {/* Imagen */}
+              <div className="w-full lg:w-1/3 flex-shrink-0">
+                <img 
+                  src={pilatesYogaImage} 
+                  alt="Pilates y Yoga"
+                  className="w-full h-64 lg:h-full object-cover"
+                />
+              </div>
+              
+              {/* Contenido */}
+              <div className="w-full lg:w-2/3 p-8 flex flex-col justify-center">
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                      <Heart className="w-8 h-8 text-secondary" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-primary mb-4">
+                      Pilates y Yoga
+                    </h3>
+                    <p className="text-muted-foreground mb-6 text-lg">
+                      Ambiente perfecto para actividades de bienestar con la tranquilidad que necesitas.
+                    </p>
+                    <ul className="space-y-3">
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Iluminación natural
+                      </li>
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Espacio silencioso
+                      </li>
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Aire purificado
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Talleres y Eventos - Imagen a la izquierda */}
+          <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
+            <div className="flex flex-col lg:flex-row items-stretch min-h-[400px]">
+              {/* Imagen */}
+              <div className="w-full lg:w-1/3 flex-shrink-0">
+                <img 
+                  src={workshopsEventsImage} 
+                  alt="Talleres y Eventos"
+                  className="w-full h-64 lg:h-full object-cover"
+                />
+              </div>
+              
+              {/* Contenido */}
+              <div className="w-full lg:w-2/3 p-8 flex flex-col justify-center">
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                      <Palette className="w-8 h-8 text-secondary" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-primary mb-4">
+                      Talleres y Eventos
+                    </h3>
+                    <p className="text-muted-foreground mb-6 text-lg">
+                      Desde workshops creativos hasta eventos corporativos, el espacio se transforma según tus necesidades.
+                    </p>
+                    <ul className="space-y-3">
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Configuración adaptable
+                      </li>
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Capacidad para grupos
+                      </li>
+                      <li className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-4 flex-shrink-0"></div>
+                        Servicios adicionales
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
         
         <Card className="p-8 bg-gradient-to-r from-secondary/10 to-primary/5 border-secondary/20">
