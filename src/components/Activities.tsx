@@ -1,6 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Users, Heart, Palette, Star } from "lucide-react";
+import danceClassImage from "@/assets/dance-class.jpg";
+import pilatesYogaImage from "@/assets/pilates-yoga.jpg";
+import workshopsEventsImage from "@/assets/workshops-events.jpg";
 
 const Activities = () => {
   const activities = [
@@ -8,19 +11,25 @@ const Activities = () => {
       icon: Users,
       title: "Clases de Baile",
       description: "Desde bailes latinos hasta danza contemporánea, nuestro espacio se adapta a todos los estilos.",
-      features: ["Suelo de baile profesional", "Espejos en todas las paredes", "Sistema de sonido de calidad"]
+      features: ["Suelo de baile profesional", "Espejos en todas las paredes", "Sistema de sonido de calidad"],
+      image: danceClassImage,
+      imagePosition: "left"
     },
     {
       icon: Heart,
       title: "Pilates y Yoga",
       description: "Ambiente perfecto para actividades de bienestar con la tranquilidad que necesitas.",
-      features: ["Iluminación natural", "Espacio silencioso", "Aire purificado"]
+      features: ["Iluminación natural", "Espacio silencioso", "Aire purificado"],
+      image: pilatesYogaImage,
+      imagePosition: "right"
     },
     {
       icon: Palette,
       title: "Talleres y Eventos",
       description: "Desde workshops creativos hasta eventos corporativos, el espacio se transforma según tus necesidades.",
-      features: ["Configuración adaptable", "Capacidad para grupos", "Servicios adicionales"]
+      features: ["Configuración adaptable", "Capacidad para grupos", "Servicios adicionales"],
+      image: workshopsEventsImage,
+      imagePosition: "left"
     }
   ];
 
@@ -37,30 +46,44 @@ const Activities = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="space-y-12 mb-12">
           {activities.map((activity, index) => (
-            <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="flex items-start space-x-6">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                    <activity.icon className="w-8 h-8 text-secondary" />
-                  </div>
+            <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              <div className={`flex flex-col lg:flex-row items-center ${activity.imagePosition === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+                {/* Image */}
+                <div className="w-full lg:w-2/5 h-64 lg:h-80">
+                  <img 
+                    src={activity.image} 
+                    alt={activity.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-primary mb-3">
-                    {activity.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
-                    {activity.description}
-                  </p>
-                  <ul className="space-y-2">
-                    {activity.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <div className="w-2 h-2 bg-secondary rounded-full mr-3 flex-shrink-0"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                
+                {/* Content */}
+                <div className="w-full lg:w-3/5 p-8">
+                  <div className="flex items-start space-x-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                        <activity.icon className="w-8 h-8 text-secondary" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-primary mb-3">
+                        {activity.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4">
+                        {activity.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {activity.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                            <div className="w-2 h-2 bg-secondary rounded-full mr-3 flex-shrink-0"></div>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Card>
