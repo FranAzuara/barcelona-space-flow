@@ -1,37 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Users, Heart, Palette, Star } from "lucide-react";
-import danceClassImage from "@/assets/dance-class.jpg";
-import pilatesYogaImage from "@/assets/pilates-yoga.jpg";
-import workshopsEventsImage from "@/assets/workshops-events.jpg";
+import danceVerticalImage from "@/assets/dance-vertical.jpg";
+import yogaVerticalImage from "@/assets/yoga-vertical.jpg";
+import eventsVerticalImage from "@/assets/events-vertical.jpg";
 
 const Activities = () => {
-  const activities = [
-    {
-      icon: Users,
-      title: "Clases de Baile",
-      description: "Desde bailes latinos hasta danza contemporánea, nuestro espacio se adapta a todos los estilos.",
-      features: ["Suelo de baile profesional", "Espejos en todas las paredes", "Sistema de sonido de calidad"],
-      image: danceClassImage,
-      imagePosition: "left"
-    },
-    {
-      icon: Heart,
-      title: "Pilates y Yoga",
-      description: "Ambiente perfecto para actividades de bienestar con la tranquilidad que necesitas.",
-      features: ["Iluminación natural", "Espacio silencioso", "Aire purificado"],
-      image: pilatesYogaImage,
-      imagePosition: "right"
-    },
-    {
-      icon: Palette,
-      title: "Talleres y Eventos",
-      description: "Desde workshops creativos hasta eventos corporativos, el espacio se transforma según tus necesidades.",
-      features: ["Configuración adaptable", "Capacidad para grupos", "Servicios adicionales"],
-      image: workshopsEventsImage,
-      imagePosition: "left"
-    }
-  ];
 
   return (
     <section className="py-16 bg-background">
@@ -53,7 +27,7 @@ const Activities = () => {
               {/* Imagen */}
               <div className="w-full lg:w-1/3 flex-shrink-0">
                 <img 
-                  src={danceClassImage} 
+                  src={danceVerticalImage} 
                   alt="Clases de Baile"
                   className="w-full h-64 lg:h-full object-cover"
                 />
@@ -100,7 +74,7 @@ const Activities = () => {
               {/* Imagen */}
               <div className="w-full lg:w-1/3 flex-shrink-0">
                 <img 
-                  src={pilatesYogaImage} 
+                  src={yogaVerticalImage} 
                   alt="Pilates y Yoga"
                   className="w-full h-64 lg:h-full object-cover"
                 />
@@ -147,7 +121,7 @@ const Activities = () => {
               {/* Imagen */}
               <div className="w-full lg:w-1/3 flex-shrink-0">
                 <img 
-                  src={workshopsEventsImage} 
+                  src={eventsVerticalImage} 
                   alt="Talleres y Eventos"
                   className="w-full h-64 lg:h-full object-cover"
                 />
