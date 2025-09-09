@@ -25,7 +25,7 @@ const Activities = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section id="actividades" className="py-16 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary mb-4">

@@ -4,7 +4,7 @@ import { MapPin, Train, Car, Clock } from "lucide-react";
 
 const Location = () => {
   return (
-    <section className="py-16 bg-muted/30">
+    <section id="ubicacion" className="py-16 bg-muted/30">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary mb-4">
