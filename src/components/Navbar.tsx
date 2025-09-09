@@ -11,6 +11,18 @@ const Navbar = () => {
     { href: "#contacto", label: "Contacto" },
   ];
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
       <div className="max-w-6xl mx-auto px-6">
@@ -31,7 +43,8 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium"
+                onClick={(e) => handleSmoothScroll(e, link.href)}
+                className="text-foreground/80 hover:text-secondary hover:font-bold transition-all duration-300 text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -66,7 +79,8 @@ const Navbar = () => {
                       <a
                         key={link.href}
                         href={link.href}
-                        className="text-foreground/80 hover:text-primary transition-colors py-2 px-4 rounded-md hover:bg-accent"
+                        onClick={(e) => handleSmoothScroll(e, link.href)}
+                        className="text-foreground/80 hover:text-secondary hover:font-bold transition-all duration-300 py-2 px-4 rounded-md hover:bg-accent"
                       >
                         {link.label}
                       </a>
