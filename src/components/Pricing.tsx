@@ -82,7 +82,7 @@ const Pricing = () => {
                 <p className="text-muted-foreground text-sm">{plan.description}</p>
               </div>
               
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start text-sm">
                     <Check className="w-4 h-4 text-secondary mt-0.5 mr-3 flex-shrink-0" />
@@ -90,15 +90,14 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-              
-              <Button 
-                variant={plan.featured ? "hero" : "outline"} 
-                className="w-full"
-              >
-                {plan.cta}
-              </Button>
             </Card>
           ))}
+        </div>
+        
+        <div className="text-center mb-12">
+          <Button variant="hero" size="lg">
+            Consultar tarifas
+          </Button>
         </div>
         
         <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-secondary/20">
