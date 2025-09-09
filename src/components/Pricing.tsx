@@ -17,7 +17,7 @@ const Pricing = () => {
       cta: "Consultar Tarifas por Horas"
     },
     {
-      name: "Autónomos",
+      name: "Plan semanal",
       description: "Descuentos especiales para profesionales",
       icon: Users,
       featured: true,
