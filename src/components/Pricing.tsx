@@ -17,22 +17,10 @@ const Pricing = () => {
       cta: "Consultar Tarifas por Horas"
     },
     {
-      name: "Jornada Completa",
-      description: "Para eventos y talleres intensivos",
-      icon: Calendar,
-      featured: true,
-      features: [
-        "Sala disponible todo el día",
-        "Perfecto para workshops",
-        "Eventos y formaciones",
-        "Máxima flexibilidad horaria"
-      ],
-      cta: "Consultar Tarifas Diarias"
-    },
-    {
       name: "Autónomos",
       description: "Descuentos especiales para profesionales",
       icon: Users,
+      featured: true,
       features: [
         "Tarifas preferenciales",
         "Bonos con descuentos",
@@ -40,6 +28,18 @@ const Pricing = () => {
         "Soporte personalizado"
       ],
       cta: "Consultar Descuentos"
+    },
+    {
+      name: "Jornada Completa",
+      description: "Para eventos y talleres intensivos",
+      icon: Calendar,
+      features: [
+        "Sala disponible todo el día",
+        "Perfecto para workshops",
+        "Eventos y formaciones",
+        "Máxima flexibilidad horaria"
+      ],
+      cta: "Consultar Tarifas Diarias"
     }
   ];
 
