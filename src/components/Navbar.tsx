@@ -29,12 +29,18 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand */}
           <div className="flex items-center gap-3">
-            <img 
-              src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png" 
-              alt="The Studiez Logo" 
-              className="w-10 h-10 rounded-lg"
-            />
-            <span className="text-xl font-bold text-foreground">The Studiez</span>
+            <a 
+              href="#hero"
+              onClick={(e) => handleSmoothScroll(e, '#hero')}
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
+            >
+              <img 
+                src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png" 
+                alt="The Studiez Logo" 
+                className="w-10 h-10 rounded-lg"
+              />
+              <span className="text-xl font-bold text-foreground">The Studiez</span>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
@@ -65,14 +71,18 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-80">
                 <div className="flex flex-col gap-6 pt-6">
-                  <div className="flex items-center gap-3">
+                  <a 
+                    href="#hero"
+                    onClick={(e) => handleSmoothScroll(e, '#hero')}
+                    className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
+                  >
                     <img 
                       src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png" 
                       alt="The Studiez Logo" 
                       className="w-10 h-10 rounded-lg"
                     />
                     <span className="text-xl font-bold text-foreground">The Studiez</span>
-                  </div>
+                  </a>
                   
                   <div className="flex flex-col gap-4">
                     {navLinks.map((link) => (
