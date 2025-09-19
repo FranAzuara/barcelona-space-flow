@@ -45,9 +45,9 @@ const Activities = () => {
             <Card key={index} className="px-8 py-4 hover:shadow-xl transition-all duration-300 group h-96">
               <div className={`flex items-stretch gap-6 h-full ${index === 1 ? 'flex-row-reverse' : ''}`}>
                 {/* Image/Video Space */}
-                <div className="flex-shrink-0 w-56 flex flex-col justify-end">
+                <div className="flex-shrink-0 w-56 flex flex-col justify-center">
                   <video 
-                    className="w-full h-88 object-cover object-bottom rounded-lg"
+                    className="w-full h-80 object-cover object-center rounded-lg"
                     autoPlay
                     muted
                     loop
