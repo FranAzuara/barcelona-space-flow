@@ -42,10 +42,10 @@ const Activities = () => {
         
         <div className="grid grid-cols-1 gap-8 mb-12">
           {activities.map((activity, index) => (
-            <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className={`flex items-stretch gap-6 ${index === 1 ? 'flex-row-reverse' : ''}`}>
+            <Card key={index} className="px-8 py-4 hover:shadow-xl transition-all duration-300 group">
+              <div className={`flex items-stretch gap-6 h-full ${index === 1 ? 'flex-row-reverse' : ''}`}>
                 {/* Image/Video Space */}
-                <div className="flex-shrink-0 w-48">
+                <div className="flex-shrink-0 w-48 flex flex-col justify-end">
                   <video 
                     className="w-full h-64 object-cover rounded-lg"
                     autoPlay
@@ -59,7 +59,7 @@ const Activities = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="flex-1">
+                <div className="flex-1 flex flex-col justify-center">
                   <h3 className="text-xl font-bold text-primary mb-3">
                     {activity.title}
                   </h3>
