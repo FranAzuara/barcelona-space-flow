@@ -5,16 +5,16 @@ import { Users, Heart, Palette, Star } from "lucide-react";
 const Activities = () => {
   const activities = [
     {
-      icon: Users,
-      title: "Clases de Baile",
-      description: "Desde bailes latinos hasta danza contemporánea, nuestro espacio se adapta a todos los estilos.",
-      features: ["Suelo de baile profesional", "Espejos en todas las paredes", "Sistema de sonido de calidad"]
-    },
-    {
       icon: Heart,
       title: "Pilates y Yoga",
       description: "Ambiente perfecto para actividades de bienestar con la tranquilidad que necesitas.",
       features: ["Iluminación natural", "Espacio silencioso", "Aire purificado"]
+    },
+    {
+      icon: Users,
+      title: "Clases de Baile",
+      description: "Desde bailes latinos hasta danza contemporánea, nuestro espacio se adapta a todos los estilos.",
+      features: ["Suelo de baile profesional", "Espejos en todas las paredes", "Sistema de sonido de calidad"]
     },
     {
       icon: Palette,
