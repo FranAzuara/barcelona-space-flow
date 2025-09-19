@@ -37,15 +37,21 @@ const Activities = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 gap-8 mb-12">
           {activities.map((activity, index) => (
             <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="flex items-start space-x-6">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                    <activity.icon className="w-8 h-8 text-secondary" />
+              <div className={`flex items-stretch gap-6 ${index === 1 ? 'flex-row-reverse' : ''}`}>
+                {/* Image/Video Space */}
+                <div className="flex-shrink-0 w-48">
+                  <div className="w-full h-64 border-2 border-dashed border-muted-foreground/30 rounded-lg flex items-center justify-center bg-muted/20">
+                    <div className="text-center text-muted-foreground/50">
+                      <activity.icon className="w-12 h-12 mx-auto mb-2" />
+                      <span className="text-sm">Espacio para foto/video</span>
+                    </div>
                   </div>
                 </div>
+                
+                {/* Content */}
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-primary mb-3">
                     {activity.title}
