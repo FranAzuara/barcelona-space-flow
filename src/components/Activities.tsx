@@ -8,19 +8,22 @@ const Activities = () => {
       icon: Heart,
       title: "Pilates y Yoga",
       description: "Ambiente perfecto para actividades de bienestar con la tranquilidad que necesitas.",
-      features: ["Iluminación natural", "Espacio silencioso", "Aire purificado"]
+      features: ["Iluminación natural", "Espacio silencioso", "Aire purificado"],
+      video: "https://res.cloudinary.com/dct5oxj7j/video/upload/v1758300717/video-studiez-1_siybsl.mp4"
     },
     {
       icon: Users,
       title: "Clases de Baile",
       description: "Desde bailes latinos hasta danza contemporánea, nuestro espacio se adapta a todos los estilos.",
-      features: ["Suelo de baile profesional", "Espejos en todas las paredes", "Sistema de sonido de calidad"]
+      features: ["Suelo de baile profesional", "Espejos en todas las paredes", "Sistema de sonido de calidad"],
+      video: "https://res.cloudinary.com/dct5oxj7j/video/upload/v1758300715/video-studiez-2_u86h0n.mp4"
     },
     {
       icon: Palette,
       title: "Talleres y Eventos",
       description: "Desde workshops creativos hasta eventos corporativos, el espacio se transforma según tus necesidades.",
-      features: ["Configuración adaptable", "Capacidad para grupos", "Servicios adicionales"]
+      features: ["Configuración adaptable", "Capacidad para grupos", "Servicios adicionales"],
+      video: "https://res.cloudinary.com/dct5oxj7j/video/upload/v1758300714/video-studiez-3_tfjyi4.mp4"
     }
   ];
 
@@ -43,12 +46,16 @@ const Activities = () => {
               <div className={`flex items-stretch gap-6 ${index === 1 ? 'flex-row-reverse' : ''}`}>
                 {/* Image/Video Space */}
                 <div className="flex-shrink-0 w-48">
-                  <div className="w-full h-64 border-2 border-dashed border-muted-foreground/30 rounded-lg flex items-center justify-center bg-muted/20">
-                    <div className="text-center text-muted-foreground/50">
-                      <activity.icon className="w-12 h-12 mx-auto mb-2" />
-                      <span className="text-sm">Espacio para foto/video</span>
-                    </div>
-                  </div>
+                  <video 
+                    className="w-full h-64 object-cover rounded-lg"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={activity.video} type="video/mp4" />
+                    Tu navegador no soporta videos HTML5.
+                  </video>
                 </div>
                 
                 {/* Content */}
