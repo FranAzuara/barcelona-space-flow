@@ -74,7 +74,7 @@ const Location = () => {
               <Button 
                 variant="outline" 
                 className="w-full"
-                onClick={() => window.open('https://maps.app.goo.gl/cJzeeYUN8PDCxUi79', '_blank')}
+                onClick={() => window.open('https://www.google.com/maps/place/The+Studiez/@41.3720069,2.1322949,17z/data=!3m1!4b1!4m6!3m5!1s0x12a49970c2db9919:0xf6eb399dc068620a!8m2!3d41.3720029!4d2.1348698!16s%2Fg%2F11ydc07_4n?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D', '_blank')}
               >
                 <MapPin className="mr-2 h-4 w-4" />
                 Abrir en Google Maps
