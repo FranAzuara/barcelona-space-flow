@@ -72,7 +72,7 @@ const Location = () => {
                 />
               </div>
               <a 
-                href="https://www.google.com/maps/place/The+Studiez/@41.3720029,2.1348698,17z/data=!3m1!4b1!4m6!3m5!1s0x12a49970c2db9919:0xf6eb399dc068620a!8m2!3d41.3720029!4d2.1348698!16s%2Fg%2F11ydc07_4n?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Pomar+11+Sants-Montjuïc+08014+Barcelona"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
