@@ -58,17 +58,27 @@ const Location = () => {
               </div>
             </Card>
             
-            <div className="w-full h-64 rounded-lg overflow-hidden border">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.033379685942!2d2.1331960980965996!3d41.373359498633846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49970c2db9919%3A0xf6eb399dc068620a!2sThe%20Studiez!5e0!3m2!1ses!2ses!4v1758375633698!5m2!1ses!2ses" 
-                width="100%" 
-                height="100%" 
-                style={{border: 0}} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-              />
+            <div className="space-y-4">
+              <div className="w-full h-64 rounded-lg overflow-hidden border relative">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.033379685942!2d2.1331960980965996!3d41.373359498633846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49970c2db9919%3A0xf6eb399dc068620a!2sThe%20Studiez!5e0!3m2!1ses!2ses!4v1758375633698!5m2!1ses!2ses" 
+                  width="100%" 
+                  height="100%" 
+                  style={{border: 0}} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                />
+              </div>
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => window.open('https://maps.google.com/maps?q=The+Studiez,+Barcelona&hl=es', '_blank')}
+              >
+                <MapPin className="mr-2 h-4 w-4" />
+                Abrir en Google Maps
+              </Button>
             </div>
           </div>
           
