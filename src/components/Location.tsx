@@ -74,7 +74,7 @@ const Location = () => {
               <Button 
                 variant="outline" 
                 className="w-full"
-                onClick={() => window.open('https://maps.google.com/maps?q=The+Studiez,+Barcelona&hl=es', '_blank')}
+                onClick={() => window.open('https://maps.app.goo.gl/cJzeeYUN8PDCxUi79', '_blank')}
               >
                 <MapPin className="mr-2 h-4 w-4" />
                 Abrir en Google Maps
