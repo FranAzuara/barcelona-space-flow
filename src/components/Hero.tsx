@@ -3,6 +3,14 @@ import { Calendar, MapPin, Star } from "lucide-react";
 import heroImage from "@/assets/hero-sala.jpg";
 
 const Hero = () => {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image */}
@@ -33,11 +41,21 @@ const Hero = () => {
         </div>
         
         <div className="animate-fade-up-delay flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="text-lg px-8 py-4"
+            onClick={(e) => handleSmoothScroll(e, '#calendario')}
+          >
             <Calendar className="mr-2" />
             Ver Disponibilidad
           </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-4 bg-white/10 border-white text-white hover:bg-white hover:text-primary">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="text-lg px-8 py-4 bg-white/10 border-white text-white hover:bg-white hover:text-primary"
+            onClick={(e) => handleSmoothScroll(e, '#ubicacion')}
+          >
             <MapPin className="mr-2" />
             Ubicación
           </Button>
