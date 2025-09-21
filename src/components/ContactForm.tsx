@@ -35,6 +35,8 @@ const formSchema = z.object({
   telefono: z.string().min(1, "El número de teléfono es obligatorio"),
   asunto: z.string().min(1, "Selecciona un asunto"),
   descripcion: z.string().optional(),
+  horaInicio: z.string().optional(),
+  horaFinal: z.string().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -49,6 +51,18 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // Mostrar campos de hora solo para consultar tarifas y solicitar presupuesto
+  const showTimeFields = title === "Consultar Tarifas" || title === "Solicitar Presupuesto";
+
+  // Generar opciones de horario de 8:00 a 22:00 en intervalos de 30 minutos
+  const timeOptions = [];
+  for (let hour = 8; hour <= 22; hour++) {
+    timeOptions.push(`${hour.toString().padStart(2, '0')}:00`);
+    if (hour < 22) {
+      timeOptions.push(`${hour.toString().padStart(2, '0')}:30`);
+    }
+  }
+
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -57,6 +71,8 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
       telefono: "",
       asunto: "",
       descripcion: "",
+      horaInicio: "",
+      horaFinal: "",
     },
   });
 
@@ -154,6 +170,60 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
                 </FormItem>
               )}
             />
+
+{showTimeFields && (
+              <div className="grid grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="horaInicio"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Hora de inicio</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecciona hora" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {timeOptions.map((time) => (
+                            <SelectItem key={time} value={time}>
+                              {time}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="horaFinal"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Hora final</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecciona hora" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {timeOptions.map((time) => (
+                            <SelectItem key={time} value={time}>
+                              {time}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
 
             <FormField
               control={form.control}
