@@ -1,8 +1,18 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Clock, Users, Calendar } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 const Pricing = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [formTitle, setFormTitle] = useState("");
+
+  const handleOpenForm = (title: string) => {
+    setFormTitle(title);
+    setIsFormOpen(true);
+  };
+
   const plans = [
     {
       name: "Por Horas",
@@ -95,7 +105,11 @@ const Pricing = () => {
         </div>
         
         <div className="text-center mb-12">
-          <Button variant="hero" size="lg">
+          <Button 
+            variant="hero" 
+            size="lg"
+            onClick={() => handleOpenForm("Consultar Tarifas")}
+          >
             Consultar tarifas
           </Button>
         </div>
@@ -130,13 +144,23 @@ const Pricing = () => {
                 Cada proyecto es único. Contacta con nosotros y te haremos una propuesta 
                 adaptada a tus necesidades específicas.
               </p>
-              <Button variant="hero" size="lg">
+              <Button 
+                variant="hero" 
+                size="lg"
+                onClick={() => handleOpenForm("Solicitar Presupuesto")}
+              >
                 Solicitar Presupuesto
               </Button>
             </div>
           </div>
         </Card>
       </div>
+
+      <ContactForm 
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        title={formTitle}
+      />
     </section>
   );
 };

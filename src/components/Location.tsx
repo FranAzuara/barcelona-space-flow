@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Train, Car, Clock } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 const Location = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   return (
     <section id="ubicacion" className="py-16 bg-muted/30">
       <div className="max-w-6xl mx-auto px-6">
@@ -94,7 +97,12 @@ const Location = () => {
                   Ven a conocer nuestro espacio en persona. Te enseñaremos todas las 
                   instalaciones y resolveremos cualquier duda que tengas.
                 </p>
-                <Button variant="hero" size="lg" className="w-full">
+                <Button 
+                  variant="hero" 
+                  size="lg" 
+                  className="w-full"
+                  onClick={() => setIsFormOpen(true)}
+                >
                   <Clock className="mr-2" />
                   Agendar Visita
                 </Button>
@@ -116,6 +124,12 @@ const Location = () => {
           </div>
         </div>
       </div>
+
+      <ContactForm 
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        title="Agendar Visita"
+      />
     </section>
   );
 };
