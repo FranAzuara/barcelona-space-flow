@@ -34,6 +34,7 @@ const formSchema = z.object({
   email: z.string().email("Introduce un email válido"),
   telefono: z.string().min(1, "El número de teléfono es obligatorio"),
   asunto: z.string().min(1, "Selecciona un asunto"),
+  dia: z.string().optional(),
   descripcion: z.string().optional(),
   horaInicio: z.string().optional(),
   horaFinal: z.string().optional(),
@@ -70,6 +71,7 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
       email: "",
       telefono: "",
       asunto: "",
+      dia: "",
       descripcion: "",
       horaInicio: "",
       horaFinal: "",
@@ -164,6 +166,33 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
                       <SelectItem value="clase-esporadica">Clase esporádica</SelectItem>
                       <SelectItem value="uso-recurrente">Uso recurrente semanal</SelectItem>
                       <SelectItem value="evento-completo">Evento Jornada Completa</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="dia"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Día</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecciona un día" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="lunes">Lunes</SelectItem>
+                      <SelectItem value="martes">Martes</SelectItem>
+                      <SelectItem value="miercoles">Miércoles</SelectItem>
+                      <SelectItem value="jueves">Jueves</SelectItem>
+                      <SelectItem value="viernes">Viernes</SelectItem>
+                      <SelectItem value="sabado">Sábado</SelectItem>
+                      <SelectItem value="domingo">Domingo</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

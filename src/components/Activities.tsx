@@ -103,9 +103,6 @@ const Activities = () => {
                 <div className="text-xs text-muted-foreground">Siempre disponibles</div>
               </div>
             </div>
-            <Button variant="hero" size="lg" className="mt-8">
-              Consultar Disponibilidad
-            </Button>
           </div>
         </Card>
       </div>
