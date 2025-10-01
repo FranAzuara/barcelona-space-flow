@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Music, Activity, Heart, Users, Wifi, AirVent } from "lucide-react";
+import InteractiveSelector from "@/components/ui/interactive-selector";
 
 const Features = () => {
   const features = [
@@ -56,6 +57,10 @@ const Features = () => {
               </div>
             </Card>
           ))}
+        </div>
+        
+        <div className="mt-16">
+          <InteractiveSelector />
         </div>
       </div>
     </section>
