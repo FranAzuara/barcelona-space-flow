@@ -60,15 +60,7 @@ const InteractiveSelector = () => {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-[#222] font-sans text-white"> 
-      {/* Header Section */}
-      <div className="w-full max-w-2xl px-6 mt-8 mb-2 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg animate-fadeInTop delay-300">Escape in Style</h1>
-        <p className="text-lg md:text-xl text-gray-300 font-medium max-w-xl mx-auto animate-fadeInTop delay-600">Discover luxurious camping experiences in nature's most breathtaking spots.</p>
-      </div>
-
-      <div className="h-12"></div>
-
+    <div className="relative flex flex-col items-center justify-center min-h-[500px] bg-gradient-to-r from-secondary/10 to-primary/5 rounded-2xl p-8 font-sans text-white"> 
       {/* Options Container */}
       <div className="options flex w-full max-w-[900px] min-w-[600px] h-[400px] mx-0 items-stretch overflow-hidden relative">
         {options.map((option, index) => (
