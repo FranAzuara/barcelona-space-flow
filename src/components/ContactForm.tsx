@@ -52,8 +52,8 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  // Mostrar campos de hora solo para consultar tarifas y solicitar presupuesto
-  const showTimeFields = title === "Consultar Tarifas" || title === "Solicitar Presupuesto";
+  // Mostrar campos de hora solo para consultar tarifas, solicitar presupuesto y reservar
+  const showTimeFields = title === "Consultar Tarifas" || title === "Solicitar Presupuesto" || title === "Reservar";
 
   // Generar opciones de horario de 8:00 a 22:00 en intervalos de 30 minutos
   const timeOptions = [];
