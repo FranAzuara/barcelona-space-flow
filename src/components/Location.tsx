@@ -35,11 +35,15 @@ const Location = () => {
                   <div className="space-y-1 text-sm">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <span>Línea L1 (Roja)</span>
+                      <span>Línea L1 (Pl.Sants - Mercat Nou)</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                      <span>Línea L5 (Azul)</span>
+                      <span>Línea L5 (Pl.Sants)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-3 h-3 text-secondary" />
+                      <span>Cerca de Plaza España (L1 - L3 - L8 - FGC)</span>
                     </div>
                   </div>
                 </div>
@@ -109,7 +113,7 @@ const Location = () => {
               </div>
             </Card>
             
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               <Card className="p-4 text-center">
                 <Clock className="w-6 h-6 text-secondary mx-auto mb-2" />
                 <div className="text-sm font-medium text-primary">Horarios</div>
@@ -118,7 +122,12 @@ const Location = () => {
               <Card className="p-4 text-center">
                 <Train className="w-6 h-6 text-secondary mx-auto mb-2" />
                 <div className="text-sm font-medium text-primary">Metro</div>
-                <div className="text-xs text-muted-foreground">L1 + L5</div>
+                <div className="text-xs text-muted-foreground">L1 - L5</div>
+              </Card>
+              <Card className="p-4 text-center">
+                <Train className="w-6 h-6 text-secondary mx-auto mb-2" />
+                <div className="text-sm font-medium text-primary">FGC</div>
+                <div className="text-xs text-muted-foreground">Plaza España</div>
               </Card>
             </div>
           </div>
