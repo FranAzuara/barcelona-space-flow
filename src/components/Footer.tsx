@@ -20,10 +20,6 @@ const Footer = () => {
               <span className="font-semibold">5★ en Google Maps</span>
               <span className="text-primary-foreground/60">- Reseñas excelentes</span>
             </div>
-            <Button variant="secondary" size="lg">
-              <Calendar className="mr-2" />
-              Reserva Ahora
-            </Button>
           </div>
           
           {/* Contact Info */}
@@ -33,7 +29,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-medium">Barcelona Centro</div>
+                  <div className="font-medium">Barcelona - Sants</div>
                   <div className="text-sm">Metro L1 y L5</div>
                 </div>
               </div>

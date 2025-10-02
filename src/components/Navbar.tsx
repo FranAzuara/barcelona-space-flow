@@ -8,7 +8,6 @@ const Navbar = () => {
     { href: "#actividades", label: "Actividades" },
     { href: "#ubicacion", label: "Ubicación" },
     { href: "#tarifas", label: "Tarifas" },
-    { href: "#contacto", label: "Contacto" },
   ];
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
