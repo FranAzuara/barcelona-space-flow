@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Calendar } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 const Navbar = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const navLinks = [
     { href: "#calendario", label: "Ver Disponibilidad" },
     { href: "#actividades", label: "Actividades" },
@@ -54,7 +57,7 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="default" size="sm">
+            <Button variant="default" size="sm" onClick={() => setIsFormOpen(true)}>
               <Calendar className="mr-2 w-4 h-4" />
               Reservar
             </Button>
@@ -94,7 +97,7 @@ const Navbar = () => {
                         {link.label}
                       </a>
                     ))}
-                    <Button variant="default" className="mt-4">
+                    <Button variant="default" className="mt-4" onClick={() => setIsFormOpen(true)}>
                       <Calendar className="mr-2 w-4 h-4" />
                       Reservar
                     </Button>
@@ -105,6 +108,12 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      <ContactForm 
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        title="Reservar"
+      />
     </nav>
   );
 };
