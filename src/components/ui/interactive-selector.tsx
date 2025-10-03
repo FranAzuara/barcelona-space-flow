@@ -4,6 +4,7 @@ import { FaCampground, FaFire, FaTint, FaHotTub, FaHiking } from 'react-icons/fa
 const InteractiveSelector = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animatedOptions, setAnimatedOptions] = useState<number[]>([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   
   const options = [
     {
@@ -59,6 +60,15 @@ const InteractiveSelector = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] bg-gradient-to-r from-secondary/10 to-primary/5 rounded-2xl p-4 md:p-8 font-sans text-white"> 
       {/* Options Container */}
@@ -72,7 +82,7 @@ const InteractiveSelector = () => {
             `}
             style={{
               backgroundImage: `url('${option.image}')`,
-              backgroundSize: window.innerWidth < 768 
+              backgroundSize: windowWidth < 768 
                 ? 'cover' 
                 : (activeIndex === index ? 'auto 100%' : 'auto 120%'),
               backgroundPosition: 'center',
@@ -80,12 +90,12 @@ const InteractiveSelector = () => {
               opacity: animatedOptions.includes(index) ? 1 : 0,
               transform: animatedOptions.includes(index) 
                 ? 'translate(0, 0)' 
-                : (window.innerWidth < 768 ? 'translateY(-60px)' : 'translateX(-60px)'),
-              minWidth: window.innerWidth < 768 ? '100%' : '60px',
-              minHeight: window.innerWidth < 768 ? '40px' : '100px',
+                : (windowWidth < 768 ? 'translateY(-60px)' : 'translateX(-60px)'),
+              minWidth: windowWidth < 768 ? '100%' : '60px',
+              minHeight: windowWidth < 768 ? '40px' : '100px',
               margin: 0,
               borderRadius: 0,
-              borderWidth: window.innerWidth < 768 ? '1px' : '2px',
+              borderWidth: windowWidth < 768 ? '1px' : '2px',
               borderStyle: 'solid',
               borderColor: activeIndex === index ? '#fff' : '#292929',
               cursor: 'pointer',
@@ -93,7 +103,7 @@ const InteractiveSelector = () => {
               boxShadow: activeIndex === index 
                 ? '0 20px 60px rgba(0,0,0,0.50)' 
                 : '0 10px 30px rgba(0,0,0,0.30)',
-              flex: activeIndex === index ? (window.innerWidth < 768 ? '5 1 0%' : '7 1 0%') : '1 1 0%',
+              flex: activeIndex === index ? (windowWidth < 768 ? '5 1 0%' : '7 1 0%') : '1 1 0%',
               zIndex: activeIndex === index ? 10 : 1,
               display: 'flex',
               flexDirection: 'column',
