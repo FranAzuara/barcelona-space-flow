@@ -27,30 +27,30 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-3 sm:mb-4">
+    <section className="py-16 bg-background">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-primary mb-4">
             Una Sala Amplia, Moderna y Equipada
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Cuando alguien entra por primera vez suele decir lo mismo: "¡qué espacio tan luminoso y bien preparado!". 
             Nuestra sala está diseñada para adaptarse a diferentes necesidades.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <Card key={index} className="p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300">
-              <div className="flex items-start space-x-3 sm:space-x-4">
+            <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <feature.icon className="w-7 h-7 sm:w-8 sm:h-8 text-secondary" />
+                  <feature.icon className="w-8 h-8 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-primary mb-1 sm:mb-2">
+                  <h3 className="text-lg font-semibold text-primary mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground">
+                  <p className="text-muted-foreground">
                     {feature.description}
                   </p>
                 </div>
