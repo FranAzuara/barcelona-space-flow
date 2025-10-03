@@ -50,6 +50,7 @@ interface ContactFormProps {
 
 const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const { toast } = useToast();
 
   // Mostrar campos de hora solo para consultar tarifas, solicitar presupuesto y reservar
@@ -84,27 +85,24 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
     // Simular envío del formulario
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    toast({
-      title: "Solicitud enviada",
-      description: "Te contactaremos pronto para brindarte toda la información.",
-    });
-    
     form.reset();
     onClose();
     setIsSubmitting(false);
+    setShowSuccessDialog(true);
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-primary">
-            {title}
-          </DialogTitle>
-          <DialogDescription>
-            Completa el formulario y te contactaremos para brindarte toda la información.
-          </DialogDescription>
-        </DialogHeader>
+    <>
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-primary">
+              {title}
+            </DialogTitle>
+            <DialogDescription>
+              Completa el formulario y te contactaremos para brindarte toda la información.
+            </DialogDescription>
+          </DialogHeader>
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -294,6 +292,25 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
         </Form>
       </DialogContent>
     </Dialog>
+
+      <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+        <DialogContent className="sm:max-w-[400px]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-primary">
+              ¡Gracias por su solicitud!
+            </DialogTitle>
+            <DialogDescription className="pt-4 text-base">
+              En 24/48h la revisaremos y te confirmamos disponibilidad.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end pt-4">
+            <Button onClick={() => setShowSuccessDialog(false)} variant="hero">
+              Cerrar
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
