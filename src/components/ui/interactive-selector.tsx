@@ -60,9 +60,9 @@ const InteractiveSelector = () => {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[500px] bg-gradient-to-r from-secondary/10 to-primary/5 rounded-2xl p-8 font-sans text-white"> 
+    <div className="relative flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] bg-gradient-to-r from-secondary/10 to-primary/5 rounded-2xl p-4 md:p-8 font-sans text-white"> 
       {/* Options Container */}
-      <div className="options flex w-full max-w-[900px] min-w-[600px] h-[400px] mx-0 items-stretch overflow-hidden relative">
+      <div className="options flex w-full max-w-[900px] h-[300px] md:h-[400px] mx-0 items-stretch overflow-hidden relative rounded-lg md:rounded-none">
         {options.map((option, index) => (
           <div
             key={index}
@@ -77,11 +77,11 @@ const InteractiveSelector = () => {
               backfaceVisibility: 'hidden',
               opacity: animatedOptions.includes(index) ? 1 : 0,
               transform: animatedOptions.includes(index) ? 'translateX(0)' : 'translateX(-60px)',
-              minWidth: '60px',
+              minWidth: window.innerWidth < 768 ? '40px' : '60px',
               minHeight: '100px',
               margin: 0,
               borderRadius: 0,
-              borderWidth: '2px',
+              borderWidth: window.innerWidth < 768 ? '1px' : '2px',
               borderStyle: 'solid',
               borderColor: activeIndex === index ? '#fff' : '#292929',
               cursor: 'pointer',
@@ -89,7 +89,7 @@ const InteractiveSelector = () => {
               boxShadow: activeIndex === index 
                 ? '0 20px 60px rgba(0,0,0,0.50)' 
                 : '0 10px 30px rgba(0,0,0,0.30)',
-              flex: activeIndex === index ? '7 1 0%' : '1 1 0%',
+              flex: activeIndex === index ? (window.innerWidth < 768 ? '5 1 0%' : '7 1 0%') : '1 1 0%',
               zIndex: activeIndex === index ? 10 : 1,
               display: 'flex',
               flexDirection: 'column',
@@ -113,13 +113,15 @@ const InteractiveSelector = () => {
             ></div>
             
             {/* Label with icon and info */}
-            <div className="label absolute left-0 right-0 bottom-5 flex items-center justify-start h-12 z-2 pointer-events-none px-4 gap-3 w-full">
-              <div className="icon min-w-[44px] max-w-[44px] h-[44px] flex items-center justify-center rounded-full bg-[rgba(32,32,32,0.85)] backdrop-blur-[10px] shadow-[0_1px_4px_rgba(0,0,0,0.18)] border-2 border-[#444] flex-shrink-0 flex-grow-0 transition-all duration-200">
-                {option.icon}
+            <div className="label absolute left-0 right-0 bottom-3 md:bottom-5 flex items-center justify-start h-10 md:h-12 z-2 pointer-events-none px-2 md:px-4 gap-2 md:gap-3 w-full">
+              <div className="icon min-w-[32px] md:min-w-[44px] max-w-[32px] md:max-w-[44px] h-[32px] md:h-[44px] flex items-center justify-center rounded-full bg-[rgba(32,32,32,0.85)] backdrop-blur-[10px] shadow-[0_1px_4px_rgba(0,0,0,0.18)] border border-[#444] md:border-2 flex-shrink-0 flex-grow-0 transition-all duration-200">
+                <div className="scale-75 md:scale-100">
+                  {option.icon}
+                </div>
               </div>
               <div className="info text-white whitespace-pre relative">
                 <div 
-                  className="main font-bold text-lg transition-all duration-700 ease-in-out"
+                  className="main font-bold text-sm md:text-lg transition-all duration-700 ease-in-out"
                   style={{
                     opacity: activeIndex === index ? 1 : 0,
                     transform: activeIndex === index ? 'translateX(0)' : 'translateX(25px)'
@@ -128,7 +130,7 @@ const InteractiveSelector = () => {
                   {option.title}
                 </div>
                 <div 
-                  className="sub text-base text-gray-300 transition-all duration-700 ease-in-out"
+                  className="sub text-xs md:text-base text-gray-300 transition-all duration-700 ease-in-out"
                   style={{
                     opacity: activeIndex === index ? 1 : 0,
                     transform: activeIndex === index ? 'translateX(0)' : 'translateX(25px)'
