@@ -62,7 +62,7 @@ const InteractiveSelector = () => {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] bg-gradient-to-r from-secondary/10 to-primary/5 rounded-2xl p-4 md:p-8 font-sans text-white"> 
       {/* Options Container */}
-      <div className="options flex w-full max-w-[900px] h-[300px] md:h-[400px] mx-0 items-stretch overflow-hidden relative rounded-lg md:rounded-none">
+      <div className="options flex flex-col md:flex-row w-full md:max-w-[900px] h-[500px] md:h-[400px] mx-0 items-stretch overflow-hidden relative rounded-lg">
         {options.map((option, index) => (
           <div
             key={index}
@@ -72,13 +72,17 @@ const InteractiveSelector = () => {
             `}
             style={{
               backgroundImage: `url('${option.image}')`,
-              backgroundSize: activeIndex === index ? 'auto 100%' : 'auto 120%',
+              backgroundSize: activeIndex === index 
+                ? (window.innerWidth < 768 ? '100% auto' : 'auto 100%') 
+                : (window.innerWidth < 768 ? '120% auto' : 'auto 120%'),
               backgroundPosition: 'center',
               backfaceVisibility: 'hidden',
               opacity: animatedOptions.includes(index) ? 1 : 0,
-              transform: animatedOptions.includes(index) ? 'translateX(0)' : 'translateX(-60px)',
-              minWidth: window.innerWidth < 768 ? '40px' : '60px',
-              minHeight: '100px',
+              transform: animatedOptions.includes(index) 
+                ? 'translate(0, 0)' 
+                : (window.innerWidth < 768 ? 'translateY(-60px)' : 'translateX(-60px)'),
+              minWidth: window.innerWidth < 768 ? '100%' : '60px',
+              minHeight: window.innerWidth < 768 ? '40px' : '100px',
               margin: 0,
               borderRadius: 0,
               borderWidth: window.innerWidth < 768 ? '1px' : '2px',
