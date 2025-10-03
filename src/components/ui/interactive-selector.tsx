@@ -72,9 +72,9 @@ const InteractiveSelector = () => {
             `}
             style={{
               backgroundImage: `url('${option.image}')`,
-              backgroundSize: activeIndex === index 
-                ? (window.innerWidth < 768 ? '100% auto' : 'auto 100%') 
-                : (window.innerWidth < 768 ? '120% auto' : 'auto 120%'),
+              backgroundSize: window.innerWidth < 768 
+                ? 'cover' 
+                : (activeIndex === index ? 'auto 100%' : 'auto 120%'),
               backgroundPosition: 'center',
               backfaceVisibility: 'hidden',
               opacity: animatedOptions.includes(index) ? 1 : 0,
