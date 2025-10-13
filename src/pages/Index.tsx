@@ -5,6 +5,7 @@ import Activities from "@/components/Activities";
 import Calendar from "@/components/Calendar";
 import Location from "@/components/Location";
 import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <Calendar />
       <Location />
       <Pricing />
+      <FAQ />
       <Footer />
     </main>
   );
