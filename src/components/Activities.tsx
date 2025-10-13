@@ -105,7 +105,7 @@ const Activities = () => {
                   </div>
                   <div className="flex-1">
                     <div className="text-sm text-primary font-bold mb-1">EQUIPAMIENTO PROFESIONAL INCLUIDO</div>
-                    <div className="text-xs text-muted-foreground">Suelo técnico, sistema de sonido y todo el material para Baile, Yoga, Pilates a su disposición.</div>
+                    <div className="text-xs text-muted-foreground">Suelo técnico, sistema de sonido y todo el material a su disposición.</div>
                   </div>
                 </div>
               </div>
