@@ -86,21 +86,30 @@ const Activities = () => {
             <h3 className="text-2xl font-bold text-primary mb-4">
               ¿Por qué elegir nuestra sala polivalente?
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               <div>
-                <div className="text-3xl font-bold text-secondary mb-2">5★</div>
-                <div className="text-sm text-primary font-medium">Reseñas en Google Maps</div>
-                <div className="text-xs text-muted-foreground">Valoración excelente</div>
+                <div className="text-sm text-primary font-bold mb-2">CERO COSTES FIJOS</div>
+                <div className="text-xs text-muted-foreground">Paga solo por el tiempo que usas, nos encargamos del mantenimiento y suministros.</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-secondary mb-2">100%</div>
-                <div className="text-sm text-primary font-medium">Gestión Profesional</div>
-                <div className="text-xs text-muted-foreground">Atención personalizada</div>
+                <div className="text-sm text-primary font-bold mb-2">EQUIPAMIENTO PROFESIONAL INCLUIDO</div>
+                <div className="text-xs text-muted-foreground">Suelo técnico, sistema de sonido y todo el material para Baile, Yoga, Pilates a su disposición.</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-secondary mb-2">24/7</div>
-                <div className="text-sm text-primary font-medium">Soporte</div>
-                <div className="text-xs text-muted-foreground">Siempre disponibles</div>
+                <div className="text-sm text-primary font-bold mb-2">VALORACIÓN MÁXIMA (5★)</div>
+                <div className="text-xs text-muted-foreground">La confianza de otros profesionales que ya operan con éxito en nuestro espacio.</div>
+              </div>
+              <div>
+                <div className="text-sm text-primary font-bold mb-2">GESTIÓN TRANSPARENTE</div>
+                <div className="text-xs text-muted-foreground">Contratos claros, facturación detallada y soporte rápido ante cualquier incidencia.</div>
+              </div>
+              <div>
+                <div className="text-sm text-primary font-bold mb-2">UBICACIÓN CLAVE</div>
+                <div className="text-xs text-muted-foreground">Fácil acceso y excelente conexión con transporte público para tus clientes.</div>
+              </div>
+              <div>
+                <div className="text-sm text-primary font-bold mb-2">ACCESO INDEPENDIENTE</div>
+                <div className="text-xs text-muted-foreground">Usa tu franja horaria sin dependencia de personal, solo concéntrate en tu clase.</div>
               </div>
             </div>
           </div>
