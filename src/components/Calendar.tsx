@@ -94,12 +94,6 @@ const Calendar = () => {
             </div>
           </div>
         </Card>
-        
-        <div className="text-center mt-8">
-          <p className="text-sm text-muted-foreground">
-            * El administrador puede modificar la disponibilidad después del login
-          </p>
-        </div>
       </div>
     </section>
   );
