@@ -96,20 +96,9 @@ const Calendar = () => {
         </Card>
         
         <div className="text-center mt-8">
-          <p className="text-sm text-muted-foreground mb-4">
+          <p className="text-sm text-muted-foreground">
             * El administrador puede modificar la disponibilidad después del login
           </p>
-          <Button 
-            variant="hero" 
-            size="lg"
-            onClick={(e) => {
-              e.preventDefault();
-              const element = document.getElementById('tarifas');
-              element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
-          >
-            Contactar para Reserva
-          </Button>
         </div>
       </div>
     </section>
