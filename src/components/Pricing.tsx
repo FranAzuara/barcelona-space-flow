@@ -108,7 +108,7 @@ const Pricing = () => {
           <Button 
             variant="hero" 
             size="lg"
-            onClick={() => handleOpenForm("Consultar Tarifas y Disponibilidad")}
+            onClick={() => handleOpenForm("Solicitar Presupuesto")}
           >
             Consultar tarifas y disponibilidad
           </Button>
