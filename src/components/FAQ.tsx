@@ -14,7 +14,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-10 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-secondary/20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

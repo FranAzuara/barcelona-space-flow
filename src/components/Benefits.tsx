@@ -3,7 +3,7 @@ import { Star, DollarSign, Wrench, Award, FileText, MapPin, Key } from "lucide-r
 
 const Benefits = () => {
   return (
-    <section id="beneficios" className="py-16 bg-background">
+    <section id="beneficios" className="py-10 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <Card className="p-8 bg-gradient-to-r from-secondary/10 to-primary/5 border-secondary/20">
           <div className="text-center">
