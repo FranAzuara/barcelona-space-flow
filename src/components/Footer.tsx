@@ -30,7 +30,8 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-medium">Barcelona - Sants</div>
-                  <div className="text-sm">Metro L1 y L5</div>
+                  <div className="text-sm">Metro L1 y L5 (Mercat Nou - Pl.Sants)</div>
+                  <div className="text-sm">FGC - Plaza España</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
