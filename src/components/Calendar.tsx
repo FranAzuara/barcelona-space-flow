@@ -87,7 +87,7 @@ const Calendar = () => {
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent side="top" className="bg-primary text-primary-foreground">
-                        <p className="font-medium">{time}</p>
+                        <p className="font-medium">{day} - {time}</p>
                       </TooltipContent>
                     </Tooltip>
                   );
