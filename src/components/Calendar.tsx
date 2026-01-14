@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 const Calendar = () => {
@@ -45,6 +51,7 @@ const Calendar = () => {
         </div>
         
         <Card className="p-6 overflow-x-auto">
+          <TooltipProvider delayDuration={100}>
           <div className="grid grid-cols-8 gap-2 min-w-max">
             {/* Header con días */}
             <div className="font-semibold text-center p-2">Hora</div>
@@ -63,25 +70,32 @@ const Calendar = () => {
                 {days.map(day => {
                   const status = getSlotStatus(day, time);
                   return (
-                    <Button
-                      key={`${day}-${time}`}
-                      variant="calendar"
-                      size="sm"
-                      onClick={() => toggleAvailability(day, time)}
-                      className={cn(
-                        "calendar-slot h-12 text-xs font-medium",
-                        status === 'available' 
-                          ? "bg-available text-white hover:bg-available/90 border-available" 
-                          : "bg-occupied text-occupied-foreground hover:bg-occupied/90 border-occupied"
-                      )}
-                    >
-                      {status === 'available' ? 'Libre' : 'Ocupado'}
-                    </Button>
+                    <Tooltip key={`${day}-${time}`}>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="calendar"
+                          size="sm"
+                          onClick={() => toggleAvailability(day, time)}
+                          className={cn(
+                            "calendar-slot h-12 text-xs font-medium",
+                            status === 'available' 
+                              ? "bg-available text-white hover:bg-available/90 border-available" 
+                              : "bg-occupied text-occupied-foreground hover:bg-occupied/90 border-occupied"
+                          )}
+                        >
+                          {status === 'available' ? 'Libre' : 'Ocupado'}
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="bg-primary text-primary-foreground">
+                        <p className="font-medium">{time}</p>
+                      </TooltipContent>
+                    </Tooltip>
                   );
                 })}
               </div>
             ))}
           </div>
+          </TooltipProvider>
           
           <div className="mt-6 flex flex-wrap gap-4 justify-center">
             <div className="flex items-center gap-2">
