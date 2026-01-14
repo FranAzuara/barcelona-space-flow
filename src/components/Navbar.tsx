@@ -6,6 +6,8 @@ import ContactForm from "@/components/ContactForm";
 
 const Navbar = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const navLinks = [
     { href: "#calendario", label: "Ver Disponibilidad" },
     { href: "#actividades", label: "Actividades" },
@@ -23,6 +25,7 @@ const Navbar = () => {
         block: 'start'
       });
     }
+    setIsMenuOpen(false);
   };
 
   return (
@@ -65,7 +68,7 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           <div className="md:hidden">
-            <Sheet>
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="sm">
                   <Menu className="w-5 h-5" />
@@ -97,7 +100,10 @@ const Navbar = () => {
                         {link.label}
                       </a>
                     ))}
-                    <Button variant="default" className="mt-4" onClick={() => setIsFormOpen(true)}>
+                    <Button variant="default" className="mt-4" onClick={() => {
+                      setIsFormOpen(true);
+                      setIsMenuOpen(false);
+                    }}>
                       <Calendar className="mr-2 w-4 h-4" />
                       Reservar
                     </Button>
