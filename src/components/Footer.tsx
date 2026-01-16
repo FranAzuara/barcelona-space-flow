@@ -34,9 +34,16 @@ const Footer = () => {
                   <div className="text-sm">FGC - Plaza España</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-secondary" />
-                <span>the.studiez.bcn@gmail.com</span>
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-secondary" />
+                  <span>the.studiez.bcn@gmail.com</span>
+                </div>
+                <img 
+                  src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png" 
+                  alt="The Studiez Logo" 
+                  className="w-10 h-10 rounded-lg"
+                />
               </div>
             </div>
           </div>
