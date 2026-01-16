@@ -31,13 +31,13 @@ const Activities = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary mb-4">
-            Ideal para Clases de Baile, Pilates y Yoga
+            Especialistas en Movimiento, Bienestar y Entrenamiento en Barcelona
           </h2>
           <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4 leading-tight">
             Un espacio técnico y versátil diseñado para profesionales del <span className="text-secondary">Baile, Pilates y Yoga</span>.
           </h3>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Únete a los instructores y grupos que ya utilizan nuestra sala a diario en Barcelona.
+            Únete a los instructores y grupos que ya utilizan nuestra sala a diario.
           </p>
         </div>
         
