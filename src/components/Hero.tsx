@@ -34,11 +34,9 @@ const Hero = () => {
         </div>
         
         <div className="animate-fade-up-delay">
-          {/* Cambiamos a H2 y mantenemos el estilo visual de texto grande */}
           <h2 className="text-xl lg:text-2xl font-medium text-white/90 mb-4 max-w-3xl mx-auto leading-relaxed">
             Tu espacio profesional para <span className="text-secondary">baile, yoga, pilates</span> y eventos.
           </h2>
-          {/* Dejamos la descripción técnica como un P de apoyo */}
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
             Sala moderna, insonorizada y perfectamente equipada en el corazón de Barcelona.
           </p>
