@@ -5,21 +5,21 @@ const Activities = () => {
   const activities = [
     {
       icon: Heart,
-      title: "Pilates y Yoga",
+      title: "Pilates, Yoga y disciplinas de Bienestar",
       description: "Ambiente perfecto para actividades de bienestar con la tranquilidad que necesitas.",
       features: ["Iluminación natural", "Espacio silencioso", "Aire purificado"],
       video: "https://res.cloudinary.com/dct5oxj7j/video/upload/v1758300717/video-studiez-1_siybsl.mp4"
     },
     {
       icon: Users,
-      title: "Clases de Baile",
+      title: "Baile y Entrenamiento Específico",
       description: "Desde bailes latinos hasta danza contemporánea, nuestro espacio se adapta a todos los estilos.",
       features: ["Suelo de baile profesional", "Espejos en todas las paredes", "Sistema de sonido de calidad"],
       video: "https://res.cloudinary.com/dct5oxj7j/video/upload/v1758300715/video-studiez-2_u86h0n.mp4"
     },
     {
       icon: Palette,
-      title: "Talleres y Eventos",
+      title: "Workshops, Masterclass y Eventos",
       description: "Desde workshops creativos hasta eventos corporativos, el espacio se transforma según tus necesidades.",
       features: ["Configuración adaptable", "Capacidad para grupos", "Servicios adicionales"],
       video: "https://res.cloudinary.com/dct5oxj7j/video/upload/v1758300714/video-studiez-3_tfjyi4.mp4"
