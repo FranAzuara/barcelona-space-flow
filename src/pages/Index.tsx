@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
@@ -10,6 +11,8 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -17,11 +20,11 @@ const Index = () => {
       <Benefits />
       <Activities />
       <Features />
-      <Calendar />
+      <Calendar isLoggedIn={isLoggedIn} />
       <Pricing />
       <Location />
       <FAQ />
-      <Footer />
+      <Footer onLoginStatusChange={setIsLoggedIn} />
     </main>
   );
 };
