@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 const Navbar = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const navLinks = [
     { href: "#calendario", label: "Ver Disponibilidad" },
     { href: "#actividades", label: "Actividades" },
@@ -15,14 +15,17 @@ const Navbar = () => {
     { href: "#tarifas", label: "Tarifas" },
   ];
 
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
+    const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
     setIsMenuOpen(false);
@@ -34,17 +37,19 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand */}
           <div className="flex items-center gap-3">
-            <a 
+            <a
               href="#hero"
-              onClick={(e) => handleSmoothScroll(e, '#hero')}
+              onClick={(e) => handleSmoothScroll(e, "#hero")}
               className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
             >
-              <img 
-                src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png" 
-                alt="The Studiez Logo" 
+              <img
+                src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png"
+                alt="The Studiez Logo"
                 className="w-10 h-10 rounded-lg"
               />
-              <span className="text-xl font-bold text-foreground">The Studiez</span>
+              <span className="text-xl font-bold text-foreground">
+                The Studiez
+              </span>
             </a>
           </div>
 
@@ -60,9 +65,13 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="default" size="sm" onClick={() => setIsFormOpen(true)}>
+            <Button
+              variant="default"
+              size="sm"
+              onClick={() => setIsFormOpen(true)}
+            >
               <Calendar className="mr-2 w-4 h-4" />
-              Reservar
+              Solicitar Reserva
             </Button>
           </div>
 
@@ -76,19 +85,21 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-80">
                 <div className="flex flex-col gap-6 pt-6">
-                  <a 
+                  <a
                     href="#hero"
-                    onClick={(e) => handleSmoothScroll(e, '#hero')}
+                    onClick={(e) => handleSmoothScroll(e, "#hero")}
                     className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
                   >
-                    <img 
-                      src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png" 
-                      alt="The Studiez Logo" 
+                    <img
+                      src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png"
+                      alt="The Studiez Logo"
                       className="w-10 h-10 rounded-lg"
                     />
-                    <span className="text-xl font-bold text-foreground">The Studiez</span>
+                    <span className="text-xl font-bold text-foreground">
+                      The Studiez
+                    </span>
                   </a>
-                  
+
                   <div className="flex flex-col gap-4">
                     {navLinks.map((link) => (
                       <a
@@ -100,10 +111,14 @@ const Navbar = () => {
                         {link.label}
                       </a>
                     ))}
-                    <Button variant="default" className="mt-4" onClick={() => {
-                      setIsFormOpen(true);
-                      setIsMenuOpen(false);
-                    }}>
+                    <Button
+                      variant="default"
+                      className="mt-4"
+                      onClick={() => {
+                        setIsFormOpen(true);
+                        setIsMenuOpen(false);
+                      }}
+                    >
                       <Calendar className="mr-2 w-4 h-4" />
                       Reservar
                     </Button>
@@ -115,10 +130,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      <ContactForm 
+      <ContactForm
         isOpen={isFormOpen}
         onClose={() => setIsFormOpen(false)}
-        title="Reservar"
+        title="Solicitar Reserva"
       />
     </nav>
   );
