@@ -1,73 +1,84 @@
-# Welcome to your Lovable project
+# The Studiez - Alquiler de Sala Polivalente en Barcelona
 
-## Project info
+¡Bienvenido al repositorio de **The Studiez**! Esta es una aplicación web moderna diseñada para la gestión y promoción de una sala polivalente en el corazón de Barcelona, ideal para actividades como baile, yoga, pilates y eventos especiales.
 
-**URL**: https://lovable.dev/projects/de0ccd07-6d3b-41af-9a1b-4194919815b6
+## 🚀 Sobre el Proyecto
 
-## How can I edit this code?
+**The Studiez** es una plataforma integral que permite a los usuarios conocer las instalaciones, consultar tarifas, verificar la disponibilidad en tiempo real y solicitar reservas de forma sencilla. El proyecto destaca por un diseño profesional, animaciones fluidas y una experiencia de usuario optimizada tanto para escritorio como para dispositivos móviles.
 
-There are several ways of editing your application.
+## ✨ Características Principales
 
-**Use Lovable**
+- **Página de Inicio Impactante**: Con secciones de Hero, Beneficios, Actividades y Características.
+- **Calendario de Disponibilidad Interactivo**: Consulta en tiempo real los huecos libres y ocupados (integrado con API).
+- **Sistema de Gestión (Admin)**: Interfaz para que los administradores puedan actualizar la disponibilidad del calendario mediante inicio de sesión.
+- **Formulario de Reserva/Contacto**: Integración para solicitudes directas de los clientes.
+- **Diseño Responsivo**: Adaptado perfectamente a móviles, tablets y ordenadores.
+- **Optimización SEO**: Estructura de componentes pensada para un buen posicionamiento.
+- **Ubicación Integrada**: Sección detallada con información sobre cómo llegar (Metro L1 y L5).
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/de0ccd07-6d3b-41af-9a1b-4194919815b6) and start prompting.
+## 🛠️ Tecnologías Utilizadas
 
-Changes made via Lovable will be committed automatically to this repo.
+Este proyecto utiliza las últimas tecnologías en el ecosistema de desarrollo web:
 
-**Use your preferred IDE**
+- **Frontend**: [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- **Herramienta de Construcción**: [Vite](https://vitejs.dev/)
+- **Estilos**: [Tailwind CSS](https://tailwindcss.com/)
+- **Componentes UI**: [Shadcn UI](https://ui.shadcn.com/) (basado en Radix UI)
+- **Iconos**: [Lucide React](https://lucide.dev/)
+- **Gestión de Datos**: [TanStack Query](https://tanstack.com/query/latest) (React Query) y [Axios](https://axios-http.com/)
+- **Formularios**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
+- **Animaciones**: Animaciones personalizadas sobre scroll.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📦 Estructura del Proyecto
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── assets/          # Imágenes y recursos estáticos
+├── components/      # Componentes reutilizables (UI, Layout, etc.)
+├── hooks/           # Custom hooks para lógica compartida
+├── lib/             # Utilidades y configuraciones (p. ej. axios, utils)
+├── pages/           # Páginas principales de la aplicación
+├── types/           # Definiciones de tipos TypeScript
+└── App.tsx          # Configuración de rutas y layout principal
 ```
 
-**Edit a file directly in GitHub**
+## 💻 Configuración Local
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
 
-**Use GitHub Codespaces**
+1. **Clonar el repositorio**:
+   ```bash
+   git clone <url-del-repositorio>
+   cd <nombre-del-directorio>
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+2. **Instalar dependencias**:
+   ```bash
+   npm install
+   # O si usas bun:
+   bun install
+   ```
 
-## What technologies are used for this project?
+3. **Variables de Entorno**:
+   Crea un archivo `.env` en la raíz y configura la URL de la API:
+   ```env
+   VITE_API_URL=tu_url_de_api
+   ```
 
-This project is built with:
+4. **Iniciar el servidor de desarrollo**:
+   ```bash
+   npm run dev
+   ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🌐 Despliegue
 
-## How can I deploy this project?
+Este proyecto está configurado para ser desplegado fácilmente a través de [Lovable](https://lovable.dev/) o cualquier plataforma compatible con Vite (Vercel, Netlify, etc.).
 
-Simply open [Lovable](https://lovable.dev/projects/de0ccd07-6d3b-41af-9a1b-4194919815b6) and click on Share -> Publish.
+Para generar una versión de producción:
+```bash
+npm run build
+```
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Desarrollado con ❤️ para **The Studiez**.
