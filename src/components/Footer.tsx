@@ -45,21 +45,21 @@ const Footer = ({ onLoginStatusChange }: FooterProps) => {
       />
       <footer id="contacto" className="bg-primary text-primary-foreground">
         <div className="max-w-6xl mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
             {/* Company Info */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-3xl font-bold mb-6 tracking-tight">
                 Sala Polivalente Barcelona
               </h3>
-              <p className="text-primary-foreground/80 mb-6 leading-relaxed">
+              <p className="text-primary-foreground/70 mb-8 leading-relaxed max-w-xl text-lg">
                 Un espacio versátil en el corazón de Barcelona para autónomos,
                 profesores y artistas. Sala amplia, moderna y equipada para
                 clases de baile, yoga, pilates y eventos.
               </p>
-              <div className="flex items-center gap-2 mb-4">
-                <Star className="w-5 h-5 text-secondary" />
+              <div className="flex items-center gap-3 mb-4 bg-white/5 w-fit px-4 py-2 rounded-full border border-white/10">
+                <Star className="w-5 h-5 text-secondary fill-secondary" />
                 <span className="font-semibold">5★ en Google Maps</span>
-                <span className="text-primary-foreground/60">
+                <span className="text-primary-foreground/50">
                   - Reseñas excelentes
                 </span>
               </div>

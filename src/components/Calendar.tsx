@@ -131,9 +131,9 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
         </div>
 
         <AnimateOnScroll>
-          <Card className="p-6 overflow-x-auto">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-sm text-muted-foreground">Horario</div>
+          <div className="bg-white p-8 rounded-[2.5rem] shadow-ethereal border border-border/50 overflow-hidden">
+            <div className="flex items-center justify-between mb-8">
+              <div className="text-xs font-bold tracking-widest uppercase text-muted-foreground">Calendario de Disponibilidad</div>
               {isLoggedIn && (
                 <div>
                   <Button onClick={save} disabled={saveLoading} size="sm">
@@ -178,13 +178,13 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
                                   size="sm"
                                   onClick={() => toggleAvailability(day, time)}
                                   className={cn(
-                                    "calendar-slot h-12 text-xs font-medium transition-all",
+                                    "calendar-slot h-12 text-[10px] uppercase tracking-tighter font-bold transition-all rounded-xl border-none",
                                     isLoggedIn
                                       ? "cursor-pointer"
                                       : "cursor-default",
                                     status === "available"
-                                      ? "bg-available text-white hover:bg-available/90 border-available"
-                                      : "bg-occupied text-occupied-foreground hover:bg-occupied/90 border-occupied",
+                                      ? "bg-accent/50 text-available hover:bg-accent border-available shadow-sm"
+                                      : "bg-muted/50 text-muted-foreground/40 hover:bg-muted border-occupied",
                                   )}
                                 >
                                   {status === "available" ? "Libre" : "Ocupado"}
@@ -206,19 +206,19 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
                   </div>
                 </TooltipProvider>
 
-                <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-available rounded"></div>
-                    <span className="text-sm">Disponible</span>
+                <div className="mt-8 flex flex-wrap gap-8 justify-center p-6 bg-muted/20 rounded-2xl border border-border/50">
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 bg-accent/50 rounded-lg shadow-sm"></div>
+                    <span className="text-sm font-medium text-primary/70">Disponible</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-occupied rounded"></div>
-                    <span className="text-sm">Ocupado</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 bg-muted/50 rounded-lg"></div>
+                    <span className="text-sm font-medium text-primary/40">Ocupado</span>
                   </div>
                 </div>
               </>
             )}
-          </Card>
+          </div>
         </AnimateOnScroll>
       </div>
     </section>

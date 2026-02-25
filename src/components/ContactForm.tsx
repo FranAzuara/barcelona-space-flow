@@ -95,12 +95,12 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-primary">
+        <DialogContent className="sm:max-w-[550px] max-h-[90vh] overflow-y-auto rounded-[2.5rem] p-10">
+          <DialogHeader className="mb-8">
+            <DialogTitle className="text-3xl font-black text-primary tracking-tighter">
               {title}
             </DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-base text-muted-foreground leading-relaxed">
               Déjanos tus datos para verificar si el horario está libre. Te
               contactaremos pronto para confirmar la reserva.
             </DialogDescription>
@@ -307,7 +307,7 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
                   type="submit"
                   variant="hero"
                   disabled={isSubmitting}
-                  className="flex-1"
+                  className="flex-[2] py-6 text-lg"
                 >
                   {isSubmitting ? "Enviando..." : "Enviar Solicitud"}
                 </Button>
@@ -318,17 +318,20 @@ const ContactForm = ({ isOpen, onClose, title }: ContactFormProps) => {
       </Dialog>
 
       <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
-        <DialogContent className="sm:max-w-[400px]">
+        <DialogContent className="sm:max-w-[450px] rounded-[2.5rem] p-12 text-center">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-primary">
+            <div className="w-20 h-20 bg-secondary/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
+              <Check className="w-10 h-10 text-secondary" />
+            </div>
+            <DialogTitle className="text-3xl font-black text-primary tracking-tighter">
               ¡Gracias por su solicitud!
             </DialogTitle>
-            <DialogDescription className="pt-4 text-base">
+            <DialogDescription className="pt-4 text-lg text-muted-foreground leading-relaxed">
               En 24/48h la revisaremos y te confirmamos disponibilidad.
             </DialogDescription>
           </DialogHeader>
-          <div className="flex justify-end pt-4">
-            <Button onClick={() => setShowSuccessDialog(false)} variant="hero">
+          <div className="flex justify-center pt-8">
+            <Button onClick={() => setShowSuccessDialog(false)} variant="hero" className="w-full py-6 text-lg">
               Cerrar
             </Button>
           </div>
