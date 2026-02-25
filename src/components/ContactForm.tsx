@@ -28,6 +28,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { Check } from "lucide-react";
 
 const formSchema = z.object({
   nombre: z.string().min(1, "El nombre es obligatorio"),
