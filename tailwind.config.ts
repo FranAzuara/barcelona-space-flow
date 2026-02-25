@@ -74,6 +74,10 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        ethereal: "var(--shadow-ethereal)",
+        studio: "var(--shadow-card)",
+      },
       keyframes: {
         "accordion-down": {
           from: {

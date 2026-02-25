@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Train, Car, Clock } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
@@ -8,30 +7,34 @@ import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 const Location = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   return (
-    <section id="ubicacion" className="py-10 bg-muted/30">
+    <section id="ubicacion" className="py-24 bg-background overflow-hidden relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-primary mb-4">
-            Ubicación Inmejorable en Barcelona
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold text-primary mb-6 tracking-tight">
+            Ubicación Inmejorable
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Perfectamente conectada con el transporte público y los principales
             barrios de la ciudad. Tu comodidad y la de tus estudiantes es
             nuestra prioridad.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
             <AnimateOnScroll>
-              <Card className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Train className="w-8 h-8 text-secondary flex-shrink-0" />
+              <div className="p-8 bg-white rounded-3xl shadow-studio border border-border/50 hover:shadow-ethereal transition-all duration-500">
+                <div className="flex items-start space-x-6">
+                  <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <Train className="w-8 h-8 text-secondary" />
+                  </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">
+                    <h3 className="text-2xl font-bold text-primary mb-3 tracking-tight">
                       Acceso Directo al Metro
                     </h3>
-                    <p className="text-muted-foreground mb-3">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       Estamos a pie de metro con acceso a las líneas L1 y L5, lo
                       que hace que venir en transporte público sea
                       extremadamente sencillo.
@@ -52,25 +55,27 @@ const Location = () => {
                     </div>
                   </div>
                 </div>
-              </Card>
+              </div>
             </AnimateOnScroll>
 
             <AnimateOnScroll>
-              <Card className="p-6">
-                <div className="flex items-start space-x-4">
-                  <MapPin className="w-8 h-8 text-secondary flex-shrink-0" />
+              <div className="p-8 bg-white rounded-3xl shadow-studio border border-border/50 hover:shadow-ethereal transition-all duration-500">
+                <div className="flex items-start space-x-6">
+                  <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-8 h-8 text-secondary" />
+                  </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">
+                    <h3 className="text-2xl font-bold text-primary mb-3 tracking-tight">
                       Conectada con Toda la Ciudad
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground leading-relaxed">
                       La ubicación facilita la asistencia desde cualquier barrio
                       de Barcelona y mejora la puntualidad de los grupos y
                       clases.
                     </p>
                   </div>
                 </div>
-              </Card>
+              </div>
             </AnimateOnScroll>
 
             <div className="space-y-4">
@@ -91,10 +96,11 @@ const Location = () => {
 
           <div className="space-y-6">
             <AnimateOnScroll>
-              <Card className="p-8 bg-gradient-to-br from-secondary/10 to-secondary/5 border-secondary/20">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-secondary mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-primary mb-4">
+              <div className="p-10 bg-primary text-primary-foreground rounded-[2.5rem] shadow-ethereal relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary rounded-full blur-3xl opacity-20 -mr-16 -mt-16 group-hover:opacity-40 transition-opacity"></div>
+                <div className="text-center relative z-10">
+                  <MapPin className="w-12 h-12 text-secondary mx-auto mb-6" />
+                  <h3 className="text-3xl font-bold mb-4 tracking-tight">
                     Visítanos
                   </h3>
                   <p className="text-muted-foreground mb-6">
@@ -112,38 +118,38 @@ const Location = () => {
                     Agendar Visita
                   </Button>
                 </div>
-              </Card>
+              </div>
             </AnimateOnScroll>
 
             <div className="grid grid-cols-3 gap-4">
               <AnimateOnScroll>
-                <Card className="p-4 text-center">
-                  <Clock className="w-6 h-6 text-secondary mx-auto mb-2" />
-                  <div className="text-sm font-medium text-primary">
+                <div className="p-6 bg-white rounded-2xl border border-border/50 text-center shadow-studio">
+                  <Clock className="w-6 h-6 text-secondary mx-auto mb-3" />
+                  <div className="text-sm font-bold text-primary mb-1">
                     Horarios
                   </div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-xs text-muted-foreground font-medium">
                     8:00 - 22:00
                   </div>
-                </Card>
+                </div>
               </AnimateOnScroll>
               <AnimateOnScroll>
-                <Card className="p-4 text-center">
-                  <Train className="w-6 h-6 text-secondary mx-auto mb-2" />
-                  <div className="text-sm font-medium text-primary">Metro</div>
-                  <div className="text-xs text-muted-foreground">L1 - L5</div>
-                </Card>
+                <div className="p-6 bg-white rounded-2xl border border-border/50 text-center shadow-studio">
+                  <Train className="w-6 h-6 text-secondary mx-auto mb-3" />
+                  <div className="text-sm font-bold text-primary mb-1">Metro</div>
+                  <div className="text-xs text-muted-foreground font-medium">L1 - L5</div>
+                </div>
               </AnimateOnScroll>
               <AnimateOnScroll>
-                <Card className="p-4 text-center">
-                  <Train className="w-6 h-6 text-secondary mx-auto mb-2" />
-                  <div className="text-sm font-medium text-primary">
+                <div className="p-6 bg-white rounded-2xl border border-border/50 text-center shadow-studio">
+                  <Train className="w-6 h-6 text-secondary mx-auto mb-3" />
+                  <div className="text-sm font-bold text-primary mb-1">
+                    Transporte
+                  </div>
+                  <div className="text-[10px] leading-tight text-muted-foreground font-medium">
                     FGC - Rodalies
                   </div>
-                  <div className="text-xs text-muted-foreground">
-                    Plaza España - Sants Estación
-                  </div>
-                </Card>
+                </div>
               </AnimateOnScroll>
             </div>
           </div>

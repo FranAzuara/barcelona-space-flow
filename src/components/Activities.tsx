@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import { Users, Heart, Palette } from "lucide-react";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
@@ -62,49 +61,50 @@ const Activities = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 mb-12">
+        <div className="grid grid-cols-1 gap-12 mb-12">
           {activities.map((activity, index) => (
             <AnimateOnScroll key={index} className="block">
-              <Card className="px-8 py-4 hover:shadow-xl transition-all duration-300 group md:h-96">
-                <div
-                  className={`flex flex-col md:flex-row items-stretch gap-6 h-full ${index === 1 ? "md:flex-row-reverse" : ""}`}
-                >
-                  {/* Image/Video Space */}
-                  <div className="flex-shrink-0 w-full md:w-56 flex flex-col justify-center">
-                    <video
-                      className="w-full h-64 md:h-80 object-cover object-center rounded-lg"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    >
-                      <source src={activity.video} type="video/mp4" />
-                      Tu navegador no soporta videos HTML5.
-                    </video>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col justify-center">
-                    <h3 className="text-xl font-bold text-primary mb-3">
-                      {activity.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4">
-                      {activity.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {activity.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-center text-sm text-muted-foreground"
-                        >
-                          <div className="w-2 h-2 bg-secondary rounded-full mr-3 flex-shrink-0"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div
+                className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${index === 1 ? "md:flex-row-reverse" : ""}`}
+              >
+                {/* Image/Video Space */}
+                <div className="flex-shrink-0 w-full md:w-1/2 overflow-hidden rounded-3xl shadow-ethereal group">
+                  <video
+                    className="w-full h-80 md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={activity.video} type="video/mp4" />
+                    Tu navegador no soporta videos HTML5.
+                  </video>
                 </div>
-              </Card>
+
+                {/* Content */}
+                <div className="flex-1 space-y-6">
+                  <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center">
+                    <activity.icon className="w-6 h-6 text-secondary" />
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
+                    {activity.title}
+                  </h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    {activity.description}
+                  </p>
+                  <ul className="space-y-4">
+                    {activity.features.map((feature, featureIndex) => (
+                      <li
+                        key={featureIndex}
+                        className="flex items-center text-base text-primary/80"
+                      >
+                        <div className="w-2 h-2 bg-secondary/40 rounded-full mr-4 flex-shrink-0 border border-secondary"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </AnimateOnScroll>
           ))}
         </div>

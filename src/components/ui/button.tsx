@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105",
+        hero: "bg-secondary text-secondary-foreground hover:opacity-90 shadow-studio hover:shadow-ethereal transition-all duration-500 hover:-translate-y-0.5 active:translate-y-0",
         calendar: "border border-border hover:border-secondary transition-colors",
       },
       size: {

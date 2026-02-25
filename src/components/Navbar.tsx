@@ -60,9 +60,10 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.href)}
-                className="text-foreground/80 hover:text-secondary hover:font-bold transition-all duration-300 text-sm font-medium"
+                className="text-foreground/70 hover:text-secondary transition-all duration-300 text-sm font-medium relative group"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
             <Button

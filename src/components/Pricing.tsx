@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Clock, Users, Calendar } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
@@ -71,48 +70,58 @@ const Pricing = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, index) => (
             <AnimateOnScroll key={index}>
-              <Card
-                className={`p-8 relative hover:shadow-xl transition-all duration-300 ${
+              <div
+                className={`p-10 rounded-[2rem] relative transition-all duration-500 h-full flex flex-col ${
                   plan.featured
-                    ? "ring-2 ring-secondary border-secondary shadow-lg"
-                    : ""
+                    ? "bg-primary text-primary-foreground shadow-ethereal scale-105 z-10"
+                    : "bg-white border border-border/50 hover:shadow-studio"
                 }`}
               >
                 {plan.featured && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-secondary text-secondary-foreground px-6 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase whitespace-nowrap shadow-lg">
                       Más Popular
                     </span>
                   </div>
                 )}
 
-                <div className="text-center mb-6">
+                <div className="text-center mb-8">
                   <div
-                    className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${
+                    className={`w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center rotate-3 transition-transform group-hover:rotate-0 ${
                       plan.featured
-                        ? "bg-secondary text-white"
+                        ? "bg-white/10 text-white"
                         : "bg-secondary/10 text-secondary"
                     }`}
                   >
-                    <plan.icon className="w-8 h-8" />
+                    <plan.icon className="w-10 h-10" />
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-2">
+                  <h3 className={`text-2xl font-bold mb-3 ${plan.featured ? "text-white" : "text-primary"}`}>
                     {plan.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className={plan.featured ? "text-white/60 text-sm" : "text-muted-foreground text-sm"}>
                     {plan.description}
                   </p>
                 </div>
 
-                <ul className="space-y-3">
+                <ul className="space-y-4 mb-8 flex-1">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start text-sm">
-                      <Check className="w-4 h-4 text-secondary mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
+                      <div className={`mt-1 mr-4 rounded-full p-0.5 ${plan.featured ? "bg-secondary text-secondary-foreground" : "bg-secondary/20 text-secondary"}`}>
+                        <Check className="w-3.5 h-3.5" />
+                      </div>
+                      <span className={plan.featured ? "text-white/80" : "text-muted-foreground"}>{feature}</span>
                     </li>
                   ))}
                 </ul>
-              </Card>
+
+                <Button
+                  variant={plan.featured ? "hero" : "outline"}
+                  className={`w-full ${plan.featured ? "bg-secondary hover:bg-secondary/90 border-none" : "border-primary/10 hover:border-primary"}`}
+                  onClick={() => handleOpenForm(plan.cta)}
+                >
+                  {plan.cta}
+                </Button>
+              </div>
             </AnimateOnScroll>
           ))}
         </div>
