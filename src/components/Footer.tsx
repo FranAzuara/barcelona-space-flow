@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Calendar, Star } from "lucide-react";
+import { MapPin, Phone, Mail, Calendar, Star, Instagram } from "lucide-react";
 import { LoginModal } from "./LoginModal";
 import { LogoutModal } from "./LogoutModal";
 
@@ -82,10 +82,21 @@ const Footer = ({ onLoginStatusChange }: FooterProps) => {
                     <div className="text-sm">Rodalies - Sants Estación</div>
                   </div>
                 </div>
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-secondary" />
-                    <span>the.studiez.bcn@gmail.com</span>
+                <div className="flex items-end justify-between gap-3">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Mail className="w-5 h-5 text-secondary" />
+                      <span>the.studiez.bcn@gmail.com</span>
+                    </div>
+                    <a
+                      href="https://www.instagram.com/the.studiez/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 hover:text-secondary transition-colors"
+                    >
+                      <Instagram className="w-5 h-5 text-secondary" />
+                      <span>@the.studiez</span>
+                    </a>
                   </div>
                   <button
                     onClick={handleImageClick}
