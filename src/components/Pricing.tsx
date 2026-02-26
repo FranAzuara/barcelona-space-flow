@@ -24,7 +24,6 @@ const Pricing = () => {
         "Sin compromiso a largo plazo",
         "Solicitud rápida online",
       ],
-      cta: "Consultar Tarifas por Horas",
     },
     {
       name: "Uso Recurrente",
@@ -37,7 +36,6 @@ const Pricing = () => {
         "Prioridad en la agenda semanal",
         "Soporte personalizado",
       ],
-      cta: "Consultar Descuentos",
     },
     {
       name: "Jornada Completa",
@@ -49,7 +47,6 @@ const Pricing = () => {
         "Eventos y formaciones",
         "Presupuesto a medida",
       ],
-      cta: "Consultar Tarifas Diarias",
     },
   ];
 
@@ -95,10 +92,18 @@ const Pricing = () => {
                   >
                     <plan.icon className="w-10 h-10" />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-3 ${plan.featured ? "text-white" : "text-primary"}`}>
+                  <h3
+                    className={`text-2xl font-bold mb-3 ${plan.featured ? "text-white" : "text-primary"}`}
+                  >
                     {plan.name}
                   </h3>
-                  <p className={plan.featured ? "text-white/60 text-sm" : "text-muted-foreground text-sm"}>
+                  <p
+                    className={
+                      plan.featured
+                        ? "text-white/60 text-sm"
+                        : "text-muted-foreground text-sm"
+                    }
+                  >
                     {plan.description}
                   </p>
                 </div>
@@ -106,21 +111,23 @@ const Pricing = () => {
                 <ul className="space-y-4 mb-8 flex-1">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start text-sm">
-                      <div className={`mt-1 mr-4 rounded-full p-0.5 ${plan.featured ? "bg-secondary text-secondary-foreground" : "bg-secondary/20 text-secondary"}`}>
+                      <div
+                        className={`mt-1 mr-4 rounded-full p-0.5 ${plan.featured ? "bg-secondary text-secondary-foreground" : "bg-secondary/20 text-secondary"}`}
+                      >
                         <Check className="w-3.5 h-3.5" />
                       </div>
-                      <span className={plan.featured ? "text-white/80" : "text-muted-foreground"}>{feature}</span>
+                      <span
+                        className={
+                          plan.featured
+                            ? "text-white/80"
+                            : "text-muted-foreground"
+                        }
+                      >
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
-
-                <Button
-                  variant={plan.featured ? "hero" : "outline"}
-                  className={`w-full ${plan.featured ? "bg-secondary hover:bg-secondary/90 border-none" : "border-primary/10 hover:border-primary"}`}
-                  onClick={() => handleOpenForm(plan.cta)}
-                >
-                  {plan.cta}
-                </Button>
               </div>
             </AnimateOnScroll>
           ))}
