@@ -10,6 +10,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import type { AvailabilityMap } from "@/types/availabilityMap";
 import type { Day } from "@/types/calendarDay";
@@ -21,6 +27,7 @@ interface CalendarProps {
 }
 
 const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
+  const isMobile = useIsMobile();
   const days: Day[] = [
     "Lunes",
     "Martes",
@@ -173,37 +180,57 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
                           </div>
                           {days.map((day) => {
                             const status = getSlotStatus(day, time);
+                            const slotContent = (
+                              <Button
+                                variant="calendar"
+                                size="sm"
+                                onClick={() => toggleAvailability(day, time)}
+                                className={cn(
+                                  "calendar-slot h-12 text-[10px] uppercase tracking-tighter font-bold transition-all rounded-xl border-none w-full",
+                                  isLoggedIn
+                                    ? "cursor-pointer"
+                                    : "cursor-default",
+                                  status === "available"
+                                    ? "bg-accent/50 text-available hover:bg-accent border-available shadow-sm"
+                                    : "bg-muted/50 text-muted-foreground/40 hover:bg-muted border-occupied",
+                                )}
+                              >
+                                {status === "available" ? "Libre" : "Ocupado"}
+                              </Button>
+                            );
+
+                            const info = (
+                              <p className="font-medium">
+                                {day} - {time}
+                              </p>
+                            );
+
+                            if (isMobile) {
+                              return (
+                                <Popover key={`${day}-${time}`}>
+                                  <PopoverTrigger asChild>
+                                    {slotContent}
+                                  </PopoverTrigger>
+                                  <PopoverContent
+                                    side="top"
+                                    className="bg-primary text-primary-foreground border-none px-3 py-1.5 text-sm font-medium w-auto min-w-0"
+                                  >
+                                    {info}
+                                  </PopoverContent>
+                                </Popover>
+                              );
+                            }
+
                             return (
                               <Tooltip key={`${day}-${time}`}>
                                 <TooltipTrigger asChild>
-                                  <Button
-                                    variant="calendar"
-                                    size="sm"
-                                    onClick={() =>
-                                      toggleAvailability(day, time)
-                                    }
-                                    className={cn(
-                                      "calendar-slot h-12 text-[10px] uppercase tracking-tighter font-bold transition-all rounded-xl border-none",
-                                      isLoggedIn
-                                        ? "cursor-pointer"
-                                        : "cursor-default",
-                                      status === "available"
-                                        ? "bg-accent/50 text-available hover:bg-accent border-available shadow-sm"
-                                        : "bg-muted/50 text-muted-foreground/40 hover:bg-muted border-occupied",
-                                    )}
-                                  >
-                                    {status === "available"
-                                      ? "Libre"
-                                      : "Ocupado"}
-                                  </Button>
+                                  {slotContent}
                                 </TooltipTrigger>
                                 <TooltipContent
                                   side="top"
                                   className="bg-primary text-primary-foreground"
                                 >
-                                  <p className="font-medium">
-                                    {day} - {time}
-                                  </p>
+                                  {info}
                                 </TooltipContent>
                               </Tooltip>
                             );
