@@ -22,9 +22,9 @@ const Benefits = () => {
               <div className="w-20 h-20 rounded-3xl bg-secondary/10 flex items-center justify-center mx-auto mb-6 rotate-3">
                 <Star className="w-10 h-10 text-secondary fill-secondary" />
               </div>
-              <h3 className="text-4xl md:text-5xl font-bold text-primary mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 tracking-tight">
                 ¿Por qué elegir nuestra sala polivalente?
-              </h3>
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                 <div className="group p-6 rounded-2xl bg-background/50 border border-border/50 hover:border-secondary/30 hover:bg-white transition-all duration-500 hover:shadow-studio">
                   <div className="flex flex-col items-center text-center gap-4">
