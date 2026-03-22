@@ -21,6 +21,9 @@ import type { AvailabilityMap } from "@/types/availabilityMap";
 import type { Day } from "@/types/calendarDay";
 
 const API_URL = import.meta.env.VITE_API_URL;
+const CACHE_KEY = "calendar_data";
+const TIMESTAMP_KEY = "calendar_timestamp";
+const EXPIRATION_TIME = 172800000; // 48 horas en ms
 
 interface CalendarProps {
   isLoggedIn?: boolean;
@@ -87,16 +90,48 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
         : "occupied";
   };
 
-  // cargando disponibilidad desde la API
+  // cargando disponibilidad desde la API con sistema de caché
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get(`${API_URL}/calendar`)
-      .then((res) => {
+    const fetchCalendarData = async () => {
+      setLoading(true);
+      try {
+        // Intentar obtener datos de localStorage
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        const cachedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
+        const now = Date.now();
+
+        // AC 3: Bloqueo de Fetch si la copia tiene menos de 48h
+        if (cachedData && cachedTimestamp) {
+          const timestamp = parseInt(cachedTimestamp, 10);
+          if (now - timestamp < EXPIRATION_TIME) {
+            console.log("Usando caché de calendario (menos de 48h)");
+            setAvailability(JSON.parse(cachedData));
+            setLoading(false);
+            return;
+          }
+        }
+
+        // AC 4: Refresco Automático si han pasado > 48h o no hay caché
+        const res = await axios.get(`${API_URL}/calendar`);
         setAvailability(res.data);
+
+        // Guardar en localStorage tras fetch exitoso (Status 200 implícito en axios.get)
+        localStorage.setItem(CACHE_KEY, JSON.stringify(res.data));
+        localStorage.setItem(TIMESTAMP_KEY, now.toString());
+      } catch (err) {
+        console.error("Error al obtener calendario:", err);
+        // AC 5: Tolerancia a Fallos - Usar última copia disponible si el fetch falla
+        const fallbackData = localStorage.getItem(CACHE_KEY);
+        if (fallbackData) {
+          console.log("Error en fetch, usando fallback de caché");
+          setAvailability(JSON.parse(fallbackData));
+        }
+      } finally {
         setLoading(false);
-      })
-      .catch(() => setLoading(false));
+      }
+    };
+
+    fetchCalendarData();
   }, []);
 
   // Guardar cambios de disponibilidad.
@@ -111,6 +146,11 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
+
+      // Actualizar caché tras guardado exitoso
+      localStorage.setItem(CACHE_KEY, JSON.stringify(availability));
+      localStorage.setItem(TIMESTAMP_KEY, Date.now().toString());
+
       toast({ title: "Guardado", description: "Guardado correctamente" });
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
