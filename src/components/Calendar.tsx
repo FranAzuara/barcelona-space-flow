@@ -131,9 +131,11 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
         </div>
 
         <AnimateOnScroll>
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-ethereal border border-border/50 overflow-hidden">
+          <div className="bg-white p-4 md:p-8 rounded-[2.5rem] shadow-ethereal border border-border/50 overflow-hidden">
             <div className="flex items-center justify-between mb-8">
-              <div className="text-xs font-bold tracking-widest uppercase text-muted-foreground">Calendario de Disponibilidad</div>
+              <div className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
+                Calendario de Disponibilidad
+              </div>
               {isLoggedIn && (
                 <div>
                   <Button onClick={save} disabled={saveLoading} size="sm">
@@ -149,72 +151,67 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
               <p className="p-6 text-center">No hay disponibilidad</p>
             ) : (
               <>
-                <TooltipProvider delayDuration={100}>
-                  <div className="grid grid-cols-8 gap-2 min-w-max">
-                    {/* Header con días */}
-                    <div className="font-semibold text-center p-2">Hora</div>
-                    {days.map((day) => (
-                      <div
-                        key={day}
-                        className="font-semibold text-center p-2 text-primary"
-                      >
-                        {day}
-                      </div>
-                    ))}
-
-                    {/* Slots de tiempo */}
-                    {timeSlots.map((time) => (
-                      <div key={time} className="contents">
-                        <div className="font-medium text-sm p-2 text-center bg-muted rounded text-muted-foreground">
-                          {time}
+                <div className="overflow-x-auto pb-6 custom-scrollbar">
+                  <TooltipProvider delayDuration={100}>
+                    <div className="grid grid-cols-8 gap-2 min-w-max">
+                      {/* Header con días */}
+                      <div className="font-semibold text-center p-2">Hora</div>
+                      {days.map((day) => (
+                        <div
+                          key={day}
+                          className="font-semibold text-center p-2 text-primary"
+                        >
+                          {day}
                         </div>
-                        {days.map((day) => {
-                          const status = getSlotStatus(day, time);
-                          return (
-                            <Tooltip key={`${day}-${time}`}>
-                              <TooltipTrigger asChild>
-                                <Button
-                                  variant="calendar"
-                                  size="sm"
-                                  onClick={() => toggleAvailability(day, time)}
-                                  className={cn(
-                                    "calendar-slot h-12 text-[10px] uppercase tracking-tighter font-bold transition-all rounded-xl border-none",
-                                    isLoggedIn
-                                      ? "cursor-pointer"
-                                      : "cursor-default",
-                                    status === "available"
-                                      ? "bg-accent/50 text-available hover:bg-accent border-available shadow-sm"
-                                      : "bg-muted/50 text-muted-foreground/40 hover:bg-muted border-occupied",
-                                  )}
-                                >
-                                  {status === "available" ? "Libre" : "Ocupado"}
-                                </Button>
-                              </TooltipTrigger>
-                              <TooltipContent
-                                side="top"
-                                className="bg-primary text-primary-foreground"
-                              >
-                                <p className="font-medium">
-                                  {day} - {time}
-                                </p>
-                              </TooltipContent>
-                            </Tooltip>
-                          );
-                        })}
-                      </div>
-                    ))}
-                  </div>
-                </TooltipProvider>
+                      ))}
 
-                <div className="mt-8 flex flex-wrap gap-8 justify-center p-6 bg-muted/20 rounded-2xl border border-border/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-5 h-5 bg-accent/50 rounded-lg shadow-sm"></div>
-                    <span className="text-sm font-medium text-primary/70">Disponible</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-5 h-5 bg-muted/50 rounded-lg"></div>
-                    <span className="text-sm font-medium text-primary/40">Ocupado</span>
-                  </div>
+                      {/* Slots de tiempo */}
+                      {timeSlots.map((time) => (
+                        <div key={time} className="contents">
+                          <div className="font-medium text-sm p-2 text-center bg-muted rounded text-muted-foreground">
+                            {time}
+                          </div>
+                          {days.map((day) => {
+                            const status = getSlotStatus(day, time);
+                            return (
+                              <Tooltip key={`${day}-${time}`}>
+                                <TooltipTrigger asChild>
+                                  <Button
+                                    variant="calendar"
+                                    size="sm"
+                                    onClick={() =>
+                                      toggleAvailability(day, time)
+                                    }
+                                    className={cn(
+                                      "calendar-slot h-12 text-[10px] uppercase tracking-tighter font-bold transition-all rounded-xl border-none",
+                                      isLoggedIn
+                                        ? "cursor-pointer"
+                                        : "cursor-default",
+                                      status === "available"
+                                        ? "bg-accent/50 text-available hover:bg-accent border-available shadow-sm"
+                                        : "bg-muted/50 text-muted-foreground/40 hover:bg-muted border-occupied",
+                                    )}
+                                  >
+                                    {status === "available"
+                                      ? "Libre"
+                                      : "Ocupado"}
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent
+                                  side="top"
+                                  className="bg-primary text-primary-foreground"
+                                >
+                                  <p className="font-medium">
+                                    {day} - {time}
+                                  </p>
+                                </TooltipContent>
+                              </Tooltip>
+                            );
+                          })}
+                        </div>
+                      ))}
+                    </div>
+                  </TooltipProvider>
                 </div>
               </>
             )}
