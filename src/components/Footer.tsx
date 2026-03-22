@@ -104,7 +104,7 @@ const Footer = ({ onLoginStatusChange }: FooterProps) => {
                   >
                     <img
                       src="/lovable-uploads/f233fd69-7cae-4def-9d39-1a83ee0722a0.png"
-                      alt="The Studiez Logo"
+                      alt="The Studiez Logo - Alquiler de sala polivalente en Barcelona"
                       className="w-10 h-10 rounded-lg"
                     />
                   </button>
