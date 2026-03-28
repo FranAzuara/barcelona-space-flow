@@ -198,17 +198,17 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
               <p className="p-6 text-center">No hay disponibilidad</p>
             ) : (
               <>
-                <div className="overflow-x-auto pb-6 custom-scrollbar">
+                <div className="overflow-x-auto overflow-y-auto max-h-[700px] pb-6 custom-scrollbar">
                   <TooltipProvider delayDuration={100}>
                     <div className="grid grid-cols-8 gap-2 min-w-max">
                       {/* Header con días */}
-                      <div className="font-semibold text-center p-2 sticky left-0 z-20 bg-white border-r border-border/50 shadow-[4px_0_10px_-4px_rgba(0,0,0,0.1)]">
+                      <div className="font-semibold text-center p-2 sticky top-0 left-0 z-30 bg-white border-r border-b border-border/50 shadow-[4px_4px_10px_-4px_rgba(0,0,0,0.1)]">
                         Hora
                       </div>
                       {days.map((day) => (
                         <div
                           key={day}
-                          className="font-semibold text-center p-2 text-primary"
+                          className="font-semibold text-center p-2 text-primary sticky top-0 z-20 bg-white border-b border-border/50"
                         >
                           {day}
                         </div>
