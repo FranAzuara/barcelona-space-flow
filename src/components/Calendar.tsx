@@ -202,7 +202,9 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
                   <TooltipProvider delayDuration={100}>
                     <div className="grid grid-cols-8 gap-2 min-w-max">
                       {/* Header con días */}
-                      <div className="font-semibold text-center p-2">Hora</div>
+                      <div className="font-semibold text-center p-2 sticky left-0 z-20 bg-white border-r border-border/50 shadow-[4px_0_10px_-4px_rgba(0,0,0,0.1)]">
+                        Hora
+                      </div>
                       {days.map((day) => (
                         <div
                           key={day}
@@ -215,7 +217,7 @@ const Calendar = ({ isLoggedIn = false }: CalendarProps) => {
                       {/* Slots de tiempo */}
                       {timeSlots.map((time) => (
                         <div key={time} className="contents">
-                          <div className="font-medium text-sm p-2 text-center bg-muted rounded text-muted-foreground">
+                          <div className="font-medium text-sm p-2 text-center bg-muted text-muted-foreground sticky left-0 z-10 border-r border-border/50 shadow-[4px_0_10px_-4px_rgba(0,0,0,0.1)]">
                             {time}
                           </div>
                           {days.map((day) => {
